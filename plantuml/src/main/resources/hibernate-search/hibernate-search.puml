@@ -1,0 +1,16 @@
+@startuml
+Configuration --> Configuration:buildSessionFactory()
+Configuration --> Configuration:getInitializedEventListeners()
+Configuration --> EventListeners:initializeListeners()
+EventListeners --> ListenerProcesser:processListener()
+EventListeners -> FullTextIndexEventListener: initialize()
+FullTextIndexEventListener --> SearchFactoryBuilder:buildSearchFactory()
+SearchFactoryBuilder --> SearchFactoryBuilder:buildNewSearchFactory()
+SearchFactoryBuilder --> WorkerFactory:createWorker()
+WorkerFactory --> TransactionalWorker:initialize()
+TransactionalWorker --> BatchedQueueingProcessor:BatchedQueueingProcessor()
+BatchedQueueingProcessor --> LuceneBackendQueueProcessorFactory:initialize()
+LuceneBackendQueueProcessorFactory --> PerDPResources:PerDPResources()
+PerDPResources --> Workspace
+
+@enduml

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+     http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd"
+	default-autowire="byName">
+
+	<description>atomikos</description>
+
+	<aop:aspectj-autoproxy />
+
+	<bean id="dataSourceA" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" destroy-method="close">
+		<property name="uniqueResourceName" value="mysql/a" />
+		<property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource" />
+		<property name="xaProperties">
+			<props>
+				<prop key="user">${ds1.jdbc.username}</prop>
+				<prop key="password">${ds1.jdbc.password}</prop>
+				<prop key="URL">${ds1.jdbc.url}</prop>
+				<prop key="pinGlobalTxToPhysicalConnection">true</prop>
+				<prop key="autoReconnect">true</prop>
+			</props>
+		</property>
+		<property name="poolSize" value="10" />
+		<property name="testQuery">
+			<value>SELECT 1</value>
+		</property>
+	</bean>
+
+	<bean id="dataSourceB" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" destroy-method="close">
+		<property name="uniqueResourceName" value="mysql/b" />
+		<property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource" />
+		<property name="xaProperties">
+			<props>
+				<prop key="user">${ds2.jdbc.username}</prop>
+				<prop key="password">${ds2.jdbc.password}</prop>
+				<prop key="URL">${ds2.jdbc.url}</prop>
+				<prop key="pinGlobalTxToPhysicalConnection">true</prop>
+				<prop key="autoReconnect">true</prop>
+			</props>
+		</property>
+		<property name="poolSize" value="10" />
+		<property name="testQuery">
+			<value>SELECT 1</value>
+		</property>
+	</bean>
+
+	<bean id="jdbcTemplateA" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSourceA" />
+	</bean>
+
+	<bean id="jdbcTemplateB" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSourceB" />
+	</bean>
+
+
+	<bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager" init-method="init" destroy-method="close">
+		<property name="forceShutdown">
+			<value>true</value>
+		</property>
+	</bean>
+
+	<bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
+		<property name="transactionTimeout" value="300" />
+	</bean>
+	<bean id="jtaTransactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+		<property name="transactionManager" ref="atomikosTransactionManager" />
+		<property name="userTransaction" ref="atomikosUserTransaction" />
+	</bean>
+	<!-- 多源 -->
+	<tx:advice id="txAdviceXA" transaction-manager="jtaTransactionManager">
+		<tx:attributes>
+			<tx:method name="xa_*" propagation="REQUIRED" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="bussinessServiceXA" expression="execution(public * com.nanoutech.test.jta.service..xa_*(..))" />
+		<aop:advisor pointcut-ref="bussinessServiceXA" advice-ref="txAdviceXA" />
+	</aop:config>
+
+
+	<!-- 单源 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="${ds1.jdbc.url}" />
+		<property name="username" value="${ds1.jdbc.username}" />
+		<property name="password" value="${ds1.jdbc.password}" />
+		<!-- 连接池启动时的初始值 -->
+		<property name="initialSize" value="10" />
+		<!-- 连接池的最大值 -->
+		<property name="maxActive" value="100" />
+		<!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 -->
+		<property name="maxIdle" value="50" />
+		<!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 -->
+		<property name="minIdle" value="10" />
+		<!--#给出一条简单的sql语句进行验证 -->
+		<property name="validationQuery" value="select 2" />
+		<!--#在取出连接时进行有效验证 -->
+		<property name="testOnBorrow" value="true" />
+		<property name="removeAbandonedTimeout" value="120" />
+		<property name="removeAbandoned" value="true" />
+		<!-- #运行判断连接超时任务的时间间隔，单位为毫秒，默认为-1，即不执行任务。 -->
+		<property name="timeBetweenEvictionRunsMillis" value="3600000" />
+		<!-- #连接的超时时间，默认为半小时。 -->
+		<property name="minEvictableIdleTimeMillis" value="3600000" />
+	</bean>
+
+	<!-- 单一源 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRES_NEW" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="bussinessService" expression="execution(public * com.nanoutech.test.jta.service..add*(..))" />
+		<aop:advisor pointcut-ref="bussinessService" advice-ref="txAdvice" />
+	</aop:config>
+
+	<bean id="userDao" class="com.nanoutech.test.jta.dao.UserDao" />
+	<bean id="userService" class="com.nanoutech.test.jta.service.UserService" />
+
+</beans>  

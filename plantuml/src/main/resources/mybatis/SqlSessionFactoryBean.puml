@@ -1,0 +1,86 @@
+@startuml
+SqlSessionFactoryBean -> SqlSessionFactoryBean: afterPropertiesSet()
+SqlSessionFactoryBean -> SqlSessionFactoryBean: buildSqlSessionFactory()
+SqlSessionFactoryBean -> XMLConfigBuilder:getConfiguration()
+SqlSessionFactoryBean <-- XMLConfigBuilder:configuration
+
+== Spring SqlSessionFactoryBean 配置解析 ==
+SqlSessionFactoryBean -> Configuration:setObjectFactory(this.objectFactory)
+SqlSessionFactoryBean -> Configuration:setObjectWrapperFactory(this.objectWrapperFactory)
+SqlSessionFactoryBean -> Configuration: setVfsImpl(this.vfs)
+SqlSessionFactoryBean -> TypeAliasRegistry:registerAlias() 注册Spring配置文件中别名包中别名
+SqlSessionFactoryBean -> TypeAliasRegistry:registerAlias(typeAlias)注册Spring配置文件中别名
+SqlSessionFactoryBean -> Configuration: addInterceptor(plugin) 添加Spring配置中插件拦截器
+SqlSessionFactoryBean -> TypeHandlerRegistry:register(packageToScan)注册Spring扫描包中的typeHandler
+SqlSessionFactoryBean -> TypeHandlerRegistry:register(typeHandler)注册Spring配置中的typeHandler
+SqlSessionFactoryBean -> Configuration:setDatabaseId()
+SqlSessionFactoryBean -> Configuration:addCache(this.cache)添加cache
+
+
+== mybatis-config.xml 配置解析 ==
+
+SqlSessionFactoryBean -> XMLConfigBuilder:parse()
+XMLConfigBuilder->XMLConfigBuilder:parseConfiguration(XNode root)
+XMLConfigBuilder->XMLConfigBuilder:propertiesElement() 解析properties
+XMLConfigBuilder->XMLConfigBuilder:loadCustomVfs(settings)
+XMLConfigBuilder->XMLConfigBuilder:typeAliasesElement()
+XMLConfigBuilder->XMLConfigBuilder:pluginElement()
+XMLConfigBuilder->XMLConfigBuilder:objectFactoryElement()
+XMLConfigBuilder->XMLConfigBuilder:objectWrapperFactoryElement()
+XMLConfigBuilder->XMLConfigBuilder:reflectionFactoryElement()
+XMLConfigBuilder->XMLConfigBuilder:settingsElement(settings)
+XMLConfigBuilder->XMLConfigBuilder:environmentsElement()
+XMLConfigBuilder->XMLConfigBuilder:databaseIdProviderElement()
+XMLConfigBuilder->XMLConfigBuilder:typeHandlerElement()
+
+SqlSessionFactoryBean -> Configuration:setEnvironment(new Environment(this.environment, this.transactionFactory, this.dataSource));
+note right of SqlSessionFactoryBean: 设置事务处理器、datasource
+
+==循环解析mapper.xml==
+loop 循环解析 mapperLocations 下的mappger.xml
+
+SqlSessionFactoryBean->XMLMapperBuilder:parse()
+XMLMapperBuilder -> XMLMapperBuilder: configurationElement() 解析配置
+
+XMLMapperBuilder -> XMLMapperBuilder: cacheRefElement 解析缓存
+XMLMapperBuilder -> XMLMapperBuilder: cacheElement 解析缓存
+XMLMapperBuilder -> XMLMapperBuilder: parameterMapElement 解析参数
+
+
+XMLMapperBuilder -> XMLMapperBuilder: resultMapElements() 解析resultMap
+
+loop 循环解析resultMap列
+
+XMLMapperBuilder -> XMLMapperBuilder: resultMapElement()
+
+XMLMapperBuilder -> XMLMapperBuilder: buildResultMappingFromContext()
+XMLMapperBuilder -> XMLMapperBuilder: resolveClass(javaType) 解析类型
+XMLMapperBuilder -> XMLMapperBuilder: resolveClass(typeHandler)
+XMLMapperBuilder -> XMLMapperBuilder: resolveJdbcType(jdbcType)
+
+XMLMapperBuilder -> MapperBuilderAssistant: buildResultMapping() 解析列绑定结果
+MapperBuilderAssistant -> MapperBuilderAssistant: resolveResultJavaType(resultType, property, javaType)
+MapperBuilderAssistant -> MapperBuilderAssistant: resolveTypeHandler(javaTypeClass, typeHandler)
+MapperBuilderAssistant -> TypeHandlerRegistry: getMappingTypeHandler(typeHandlerType)
+note right of MapperBuilderAssistant:  从ALL_TYPE_HANDLERS_MAP取
+MapperBuilderAssistant -> TypeHandlerRegistry: getInstance(javaType, typeHandlerType)
+note right of MapperBuilderAssistant: 没有则创建
+
+
+XMLMapperBuilder -> XMLMapperBuilder:bindMapperForNamespace()绑定命名空间
+
+XMLMapperBuilder -> XMLMapperBuilder:parsePendingResultMaps()
+XMLMapperBuilder -> XMLMapperBuilder:parsePendingChacheRefs()
+XMLMapperBuilder -> XMLMapperBuilder:parsePendingStatements()
+end
+
+XMLMapperBuilder -> XMLMapperBuilder: sqlElement 解析SQL
+XMLMapperBuilder -> XMLMapperBuilder: buildStatementFromContext 解析SQL statement
+end
+
+SqlSessionFactoryBean -> SqlSessionFactoryBuilder:build(configuration)
+SqlSessionFactoryBuilder -> DefaultSqlSessionFactory:DefaultSqlSessionFactory(config)
+
+SqlSessionFactoryBean <-- SqlSessionFactoryBuilder:返回值到this.sqlSessionFactory
+
+@enduml
