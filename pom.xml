@@ -14,6 +14,7 @@
         <module>web-server</module>
         <module>web-client</module>
         <module>netty</module>
+        <module>shiro</module>
     </modules>
     <packaging>pom</packaging>
     <name>Study</name>
