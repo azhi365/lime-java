@@ -1,8 +1,8 @@
-package com.github.zhangkaitao.shiro.chapter23.web.controller;
+package org.walnuts.study.shiro.chapter23.web.controller;
 
-import com.github.zhangkaitao.shiro.chapter23.entity.Role;
-import com.github.zhangkaitao.shiro.chapter23.service.ResourceService;
-import com.github.zhangkaitao.shiro.chapter23.service.RoleService;
+import org.walnuts.study.shiro.chapter23.entity.Role;
+import org.walnuts.study.shiro.chapter23.service.ResourceService;
+import org.walnuts.study.shiro.chapter23.service.RoleService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

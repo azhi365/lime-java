@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter17.credentials;
+package org.walnuts.study.shiro.chapter17.credentials;
 
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

@@ -15,13 +15,11 @@ import java.util.Random;
  */
 public class SwingThreadTest {
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new SwingThreadFrame();
-                frame.setTitle("SwingThreadTest");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            JFrame frame = new SwingThreadFrame();
+            frame.setTitle("SwingThreadTest");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
         });
     }
 }
@@ -40,18 +38,10 @@ class SwingThreadFrame extends JFrame {
         JPanel panel = new JPanel();
 
         JButton goodButton = new JButton("Good");
-        goodButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                new Thread(new GoodWorkerRunnable(combo)).start();
-            }
-        });
+        goodButton.addActionListener(event -> new Thread(new GoodWorkerRunnable(combo)).start());
         panel.add(goodButton);
         JButton badButton = new JButton("Bad");
-        badButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                new Thread(new BadWorkerRunnable(combo)).start();
-            }
-        });
+        badButton.addActionListener(event -> new Thread(new BadWorkerRunnable(combo)).start());
         panel.add(badButton);
 
         panel.add(combo);

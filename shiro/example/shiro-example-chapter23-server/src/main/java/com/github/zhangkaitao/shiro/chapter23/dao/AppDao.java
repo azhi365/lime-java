@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter23.dao;
+package org.walnuts.study.shiro.chapter23.dao;
 
-import com.github.zhangkaitao.shiro.chapter23.entity.App;
+import org.walnuts.study.shiro.chapter23.entity.App;
 
 import java.util.List;
 

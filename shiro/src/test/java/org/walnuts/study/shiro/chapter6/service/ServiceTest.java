@@ -1,7 +1,7 @@
 package org.walnuts.study.shiro.chapter6.service;
 
+import org.junit.Assert;
 import org.walnuts.study.shiro.chapter6.BaseTest;
-import junit.framework.Assert;
 import org.junit.Test;
 
 import java.util.Set;

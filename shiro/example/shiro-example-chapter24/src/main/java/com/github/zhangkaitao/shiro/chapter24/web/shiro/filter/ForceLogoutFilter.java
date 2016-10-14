@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter24.web.shiro.filter;
+package org.walnuts.study.shiro.chapter24.web.shiro.filter;
 
-import com.github.zhangkaitao.shiro.chapter24.Constants;
+import org.walnuts.study.shiro.chapter24.Constants;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;

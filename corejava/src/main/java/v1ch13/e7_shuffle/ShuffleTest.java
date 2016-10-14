@@ -2,7 +2,6 @@ package v1ch13.e7_shuffle;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 
 /**

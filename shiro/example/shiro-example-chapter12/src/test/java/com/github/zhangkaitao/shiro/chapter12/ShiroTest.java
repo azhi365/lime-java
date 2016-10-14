@@ -1,12 +1,12 @@
-package com.github.zhangkaitao.shiro.chapter12;
+package org.walnuts.study.shiro.chapter12;
 
-import com.github.zhangkaitao.shiro.chapter12.entity.Permission;
-import com.github.zhangkaitao.shiro.chapter12.entity.Role;
-import com.github.zhangkaitao.shiro.chapter12.entity.User;
-import com.github.zhangkaitao.shiro.chapter12.realm.UserRealm;
-import com.github.zhangkaitao.shiro.chapter12.service.PermissionService;
-import com.github.zhangkaitao.shiro.chapter12.service.RoleService;
-import com.github.zhangkaitao.shiro.chapter12.service.UserService;
+import org.walnuts.study.shiro.chapter12.entity.Permission;
+import org.walnuts.study.shiro.chapter12.entity.Role;
+import org.walnuts.study.shiro.chapter12.entity.User;
+import org.walnuts.study.shiro.chapter12.realm.UserRealm;
+import org.walnuts.study.shiro.chapter12.service.PermissionService;
+import org.walnuts.study.shiro.chapter12.service.RoleService;
+import org.walnuts.study.shiro.chapter12.service.UserService;
 import junit.framework.Assert;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;

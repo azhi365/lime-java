@@ -20,7 +20,6 @@ public class Retirement2 {
 
         double balance = 0;
         int year = 0;
-
         String input;
 
         // update account balance while user isn't ready to retire

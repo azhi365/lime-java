@@ -1,12 +1,12 @@
-package com.github.zhangkaitao.shiro.chapter19.web.taglib;
+package org.walnuts.study.shiro.chapter19.web.taglib;
 
-import com.github.zhangkaitao.shiro.chapter19.entity.Organization;
-import com.github.zhangkaitao.shiro.chapter19.entity.Resource;
-import com.github.zhangkaitao.shiro.chapter19.entity.Role;
-import com.github.zhangkaitao.shiro.chapter19.service.OrganizationService;
-import com.github.zhangkaitao.shiro.chapter19.service.ResourceService;
-import com.github.zhangkaitao.shiro.chapter19.service.RoleService;
-import com.github.zhangkaitao.shiro.spring.SpringUtils;
+import org.walnuts.study.shiro.chapter19.entity.Organization;
+import org.walnuts.study.shiro.chapter19.entity.Resource;
+import org.walnuts.study.shiro.chapter19.entity.Role;
+import org.walnuts.study.shiro.chapter19.service.OrganizationService;
+import org.walnuts.study.shiro.chapter19.service.ResourceService;
+import org.walnuts.study.shiro.chapter19.service.RoleService;
+import org.walnuts.study.shiro.spring.SpringUtils;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;

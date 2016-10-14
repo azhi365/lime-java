@@ -6,13 +6,43 @@
         version="3.0"
         metadata-complete="false">
 
-    <!--- shiro 1.2 -->
+
+    <!-- chapter7 -->
+<!--    <listener>
+        <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>shiroEnvironmentClass</param-name>
+        &lt;!&ndash; 默认先从/WEB-INF/shiro.ini，如果没有找classpath:shiro.ini &ndash;&gt;
+        <param-value>org.apache.shiro.web.env.IniWebEnvironment</param-value>
+    </context-param>
+    <context-param>
+        <param-name>shiroConfigLocations</param-name>
+        &lt;!&ndash;<param-value>classpath:chapter7/shiro.ini</param-value>&ndash;&gt;
+        &lt;!&ndash;<param-value>classpath:chapter7/shiro-basicfilterlogin.ini</param-value>&ndash;&gt;
+        <param-value>classpath:chapter7/shiro-formfilterlogin.ini</param-value>
+    </context-param>
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+
+    <!--<error-page>-->
+    <!--<error-code>401</error-code>-->
+    <!--<location>/WEB-INF/jsp/unauthorized.jsp</location>-->
+    <!--</error-page>-->
+
+    <!-- chapter8 -->
     <listener>
         <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
     </listener>
     <context-param>
         <param-name>shiroEnvironmentClass</param-name>
-        <param-value>org.apache.shiro.web.env.IniWebEnvironment</param-value><!-- 默认先从/WEB-INF/shiro.ini，如果没有找classpath:shiro.ini -->
+        <param-value>org.apache.shiro.web.env.IniWebEnvironment</param-value>
     </context-param>
     <context-param>
         <param-name>shiroConfigLocations</param-name>
@@ -26,10 +56,5 @@
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-    <!--<error-page>-->
-        <!--<error-code>401</error-code>-->
-        <!--<location>/WEB-INF/jsp/unauthorized.jsp</location>-->
-    <!--</error-page>-->
 
 </web-app>

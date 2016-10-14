@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter19.web.bind.method;
+package org.walnuts.study.shiro.chapter19.web.bind.method;
 
-import com.github.zhangkaitao.shiro.chapter19.web.bind.annotation.CurrentUser;
+import org.walnuts.study.shiro.chapter19.web.bind.annotation.CurrentUser;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;

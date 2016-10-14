@@ -14,7 +14,7 @@
     </bean>
 
     <!-- 凭证匹配器 -->
-    <bean id="credentialsMatcher" class="com.github.zhangkaitao.shiro.chapter23.credentials.RetryLimitHashedCredentialsMatcher">
+    <bean id="credentialsMatcher" class="org.walnuts.study.shiro.chapter23.credentials.RetryLimitHashedCredentialsMatcher">
         <constructor-arg ref="cacheManager"/>
         <property name="hashAlgorithmName" value="md5"/>
         <property name="hashIterations" value="2"/>
@@ -22,7 +22,7 @@
     </bean>
 
     <!-- Realm实现 -->
-    <bean id="userRealm" class="com.github.zhangkaitao.shiro.chapter23.realm.UserRealm">
+    <bean id="userRealm" class="org.walnuts.study.shiro.chapter23.realm.UserRealm">
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
         <property name="cachingEnabled" value="false"/>
     </bean>
@@ -56,13 +56,13 @@
     </bean>
 
     <!-- 会话DAO -->
-    <bean id="sessionDAO" class="com.github.zhangkaitao.shiro.chapter23.session.dao.MySqlSessionDAO">
+    <bean id="sessionDAO" class="org.walnuts.study.shiro.chapter23.session.dao.MySqlSessionDAO">
         <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
         <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
     </bean>
 
     <!-- 会话验证调度器 -->
-    <bean id="sessionValidationScheduler" class="com.github.zhangkaitao.shiro.chapter23.session.scheduler.MySqlSessionValidationScheduler">
+    <bean id="sessionValidationScheduler" class="org.walnuts.study.shiro.chapter23.session.scheduler.MySqlSessionValidationScheduler">
         <property name="interval" value="1800000"/>
         <property name="sessionManager" ref="sessionManager"/>
     </bean>
@@ -92,13 +92,13 @@
     </bean>
 
     <!-- 基于Form表单的身份验证过滤器 -->
-    <bean id="formAuthenticationFilter" class="com.github.zhangkaitao.shiro.chapter23.web.shiro.filter.ServerFormAuthenticationFilter">
+    <bean id="formAuthenticationFilter" class="org.walnuts.study.shiro.chapter23.web.shiro.filter.ServerFormAuthenticationFilter">
         <property name="usernameParam" value="username"/>
         <property name="passwordParam" value="password"/>
         <property name="rememberMeParam" value="rememberMe"/>
     </bean>
 
-    <bean id="sysUserFilter" class="com.github.zhangkaitao.shiro.chapter23.web.shiro.filter.SysUserFilter"/>
+    <bean id="sysUserFilter" class="org.walnuts.study.shiro.chapter23.web.shiro.filter.SysUserFilter"/>
 
     <!-- Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">

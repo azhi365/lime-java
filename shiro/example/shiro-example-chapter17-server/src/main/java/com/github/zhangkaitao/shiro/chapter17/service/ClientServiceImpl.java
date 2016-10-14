@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter17.service;
+package org.walnuts.study.shiro.chapter17.service;
 
-import com.github.zhangkaitao.shiro.chapter17.dao.ClientDao;
-import com.github.zhangkaitao.shiro.chapter17.entity.Client;
+import org.walnuts.study.shiro.chapter17.dao.ClientDao;
+import org.walnuts.study.shiro.chapter17.entity.Client;
 import org.apache.oltu.oauth2.as.issuer.MD5Generator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

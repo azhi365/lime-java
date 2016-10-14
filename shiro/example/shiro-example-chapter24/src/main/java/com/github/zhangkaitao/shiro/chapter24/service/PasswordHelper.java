@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter24.service;
+package org.walnuts.study.shiro.chapter24.service;
 
-import com.github.zhangkaitao.shiro.chapter24.entity.User;
+import org.walnuts.study.shiro.chapter24.entity.User;
 import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;

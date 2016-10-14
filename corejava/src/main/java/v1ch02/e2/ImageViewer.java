@@ -2,8 +2,6 @@ package v1ch02.e2;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
@@ -14,13 +12,11 @@ import java.io.File;
  */
 public class ImageViewer {
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new ImageViewerFrame();
-                frame.setTitle("e2");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            JFrame frame = new ImageViewerFrame();
+            frame.setTitle("e2");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
         });
     }
 }
@@ -54,25 +50,19 @@ class ImageViewerFrame extends JFrame {
 
         JMenuItem openItem = new JMenuItem("Open");
         menu.add(openItem);
-        openItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                // show file chooser dialog
-                int result = chooser.showOpenDialog(null);
+        openItem.addActionListener(event -> {
+            // show file chooser dialog
+            int result = chooser.showOpenDialog(null);
 
-                // if file selected, set it as icon of the label
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    String name = chooser.getSelectedFile().getPath();
-                    label.setIcon(new ImageIcon(name));
-                }
+            // if file selected, set it as icon of the label
+            if (result == JFileChooser.APPROVE_OPTION) {
+                String name1 = chooser.getSelectedFile().getPath();
+                label.setIcon(new ImageIcon(name1));
             }
         });
 
         JMenuItem exitItem = new JMenuItem("Exit");
         menu.add(exitItem);
-        exitItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                System.exit(0);
-            }
-        });
+        exitItem.addActionListener(event -> System.exit(0));
     }
 }

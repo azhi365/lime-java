@@ -1,11 +1,11 @@
 package org.walnuts.study.shiro.chapter6.realm;
 
-import org.walnuts.study.shiro.chapter6.BaseTest;
-import org.walnuts.study.shiro.chapter6.entity.User;
-import junit.framework.Assert;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
+import org.junit.Assert;
 import org.junit.Test;
+import org.walnuts.study.shiro.chapter6.BaseTest;
+import org.walnuts.study.shiro.chapter6.entity.User;
 
 import java.util.Collection;
 import java.util.Set;
@@ -21,7 +21,7 @@ public class PrincialCollectionTest extends BaseTest {
     public void test() {
 
         //因为Realm里没有进行验证，所以相当于每个Realm都身份验证成功了
-        login("classpath:shiro-multirealm.ini", "zhang", "123");
+        login("classpath:chapter6/shiro-multirealm.ini", "zhang", "123");
         Subject subject = subject();
         //获取Primary Principal（即第一个）
         Object primaryPrincipal1 = subject.getPrincipal();

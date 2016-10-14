@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/chapter7/login.jsp").forward(req, resp);
     }
 
     @Override
@@ -46,11 +46,11 @@ public class LoginServlet extends HttpServlet {
             error = "其他错误：" + e.getMessage();
         }
 
-        if(error != null) {//出错了，返回登录页面
+        if (error != null) {//出错了，返回登录页面
             req.setAttribute("error", error);
-            req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/chapter7/login.jsp").forward(req, resp);
         } else {//登录成功
-            req.getRequestDispatcher("/WEB-INF/jsp/loginSuccess.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/chapter7/loginSuccess.jsp").forward(req, resp);
         }
     }
 }

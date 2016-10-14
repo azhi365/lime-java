@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter17.service;
+package org.walnuts.study.shiro.chapter17.service;
 
-import com.github.zhangkaitao.shiro.chapter17.entity.User;
+import org.walnuts.study.shiro.chapter17.entity.User;
 
 import java.util.List;
 

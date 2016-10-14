@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter19.entity;
+package org.walnuts.study.shiro.chapter19.entity;
 
 import java.io.Serializable;
 

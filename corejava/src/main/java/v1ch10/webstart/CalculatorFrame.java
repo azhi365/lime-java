@@ -1,12 +1,7 @@
 package v1ch10.webstart;
 
-import javax.jnlp.*;
 import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.beans.EventHandler;
 import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * A frame with a calculator panel and a menu to load and save the calculator history.
@@ -15,7 +10,7 @@ public class CalculatorFrame extends JFrame {
     private CalculatorPanel panel;
 
     public CalculatorFrame() {
-        setTitle();
+/*        setTitle();
         panel = new CalculatorPanel();
         add(panel);
 
@@ -29,7 +24,7 @@ public class CalculatorFrame extends JFrame {
         JMenuItem saveItem = fileMenu.add("Save");
         saveItem.addActionListener(EventHandler.create(ActionListener.class, this, "save"));
 
-        pack();
+        pack();*/
     }
 
     /**
@@ -37,8 +32,8 @@ public class CalculatorFrame extends JFrame {
      * entry.
      */
     public void setTitle() {
-        try {
-            String title = null;
+        /*try {
+            String title;
 
             BasicService basic = (BasicService) ServiceManager.lookup("javax.jnlp.BasicService");
             URL codeBase = basic.getCodeBase();
@@ -69,14 +64,14 @@ public class CalculatorFrame extends JFrame {
             JOptionPane.showMessageDialog(this, e);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, e);
-        }
+        }*/
     }
 
     /**
      * Opens a history file and updates the display.
      */
     public void open() {
-        try {
+       /* try {
             FileOpenService service = (FileOpenService) ServiceManager.lookup("javax.jnlp.FileOpenService");
             FileContents contents = service.openFileDialog(".", new String[]{"txt"});
 
@@ -94,14 +89,14 @@ public class CalculatorFrame extends JFrame {
             JOptionPane.showMessageDialog(this, e);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, e);
-        }
+        }*/
     }
 
     /**
      * Saves the calculator history to a file.
      */
     public void save() {
-        try {
+       /* try {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             PrintStream printOut = new PrintStream(out);
             printOut.print(panel.getText());
@@ -112,6 +107,6 @@ public class CalculatorFrame extends JFrame {
             JOptionPane.showMessageDialog(this, e);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, e);
-        }
+        }*/
     }
 }

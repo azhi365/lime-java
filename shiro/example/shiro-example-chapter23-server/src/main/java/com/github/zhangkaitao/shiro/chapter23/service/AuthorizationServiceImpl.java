@@ -1,8 +1,8 @@
-package com.github.zhangkaitao.shiro.chapter23.service;
+package org.walnuts.study.shiro.chapter23.service;
 
-import com.github.zhangkaitao.shiro.chapter23.dao.AuthorizationDao;
-import com.github.zhangkaitao.shiro.chapter23.entity.Authorization;
-import com.github.zhangkaitao.shiro.chapter23.entity.User;
+import org.walnuts.study.shiro.chapter23.dao.AuthorizationDao;
+import org.walnuts.study.shiro.chapter23.entity.Authorization;
+import org.walnuts.study.shiro.chapter23.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

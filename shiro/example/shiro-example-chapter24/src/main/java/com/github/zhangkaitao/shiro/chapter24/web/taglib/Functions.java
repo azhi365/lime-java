@@ -1,13 +1,13 @@
-package com.github.zhangkaitao.shiro.chapter24.web.taglib;
+package org.walnuts.study.shiro.chapter24.web.taglib;
 
-import com.github.zhangkaitao.shiro.chapter24.Constants;
-import com.github.zhangkaitao.shiro.chapter24.entity.Organization;
-import com.github.zhangkaitao.shiro.chapter24.entity.Resource;
-import com.github.zhangkaitao.shiro.chapter24.entity.Role;
-import com.github.zhangkaitao.shiro.chapter24.service.OrganizationService;
-import com.github.zhangkaitao.shiro.chapter24.service.ResourceService;
-import com.github.zhangkaitao.shiro.chapter24.service.RoleService;
-import com.github.zhangkaitao.shiro.spring.SpringUtils;
+import org.walnuts.study.shiro.chapter24.Constants;
+import org.walnuts.study.shiro.chapter24.entity.Organization;
+import org.walnuts.study.shiro.chapter24.entity.Resource;
+import org.walnuts.study.shiro.chapter24.entity.Role;
+import org.walnuts.study.shiro.chapter24.service.OrganizationService;
+import org.walnuts.study.shiro.chapter24.service.ResourceService;
+import org.walnuts.study.shiro.chapter24.service.RoleService;
+import org.walnuts.study.shiro.spring.SpringUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;

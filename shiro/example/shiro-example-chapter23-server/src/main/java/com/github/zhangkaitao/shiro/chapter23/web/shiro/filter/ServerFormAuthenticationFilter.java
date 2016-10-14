@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter23.web.shiro.filter;
+package org.walnuts.study.shiro.chapter23.web.shiro.filter;
 
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;

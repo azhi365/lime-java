@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter19.dao;
+package org.walnuts.study.shiro.chapter19.dao;
 
-import com.github.zhangkaitao.shiro.chapter19.entity.Role;
+import org.walnuts.study.shiro.chapter19.entity.Role;
 import org.apache.shiro.authz.permission.RolePermissionResolver;
 
 import java.util.List;

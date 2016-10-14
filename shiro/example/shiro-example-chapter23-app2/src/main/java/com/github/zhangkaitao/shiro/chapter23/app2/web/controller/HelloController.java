@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter23.app2.web.controller;
+package org.walnuts.study.shiro.chapter23.app2.web.controller;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresRoles;

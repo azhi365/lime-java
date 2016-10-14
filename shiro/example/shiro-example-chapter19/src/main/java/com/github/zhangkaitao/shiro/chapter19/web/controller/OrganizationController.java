@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter19.web.controller;
+package org.walnuts.study.shiro.chapter19.web.controller;
 
-import com.github.zhangkaitao.shiro.chapter19.entity.Organization;
-import com.github.zhangkaitao.shiro.chapter19.service.OrganizationService;
+import org.walnuts.study.shiro.chapter19.entity.Organization;
+import org.walnuts.study.shiro.chapter19.service.OrganizationService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

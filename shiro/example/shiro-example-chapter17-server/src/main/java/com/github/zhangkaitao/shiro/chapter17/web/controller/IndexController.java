@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter17.web.controller;
+package org.walnuts.study.shiro.chapter17.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

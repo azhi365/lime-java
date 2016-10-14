@@ -1,4 +1,4 @@
-package v1ch13.set;
+package v1ch13.e2_set;
 
 import java.util.HashSet;
 import java.util.Iterator;

@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter23.client;
+package org.walnuts.study.shiro.chapter23.client;
 
-import com.github.zhangkaitao.shiro.chapter23.remote.PermissionContext;
-import com.github.zhangkaitao.shiro.chapter23.remote.RemoteServiceInterface;
+import org.walnuts.study.shiro.chapter23.remote.PermissionContext;
+import org.walnuts.study.shiro.chapter23.remote.RemoteServiceInterface;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

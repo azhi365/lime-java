@@ -1,4 +1,4 @@
-package v1ch13.map;
+package v1ch13.e6_map;
 
 /**
  * A minimalist employee class for testing purposes.

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.github.zhangkaitao.shiro.chapter23.remote;
+package org.walnuts.study.shiro.chapter23.remote;
 
 import org.apache.shiro.session.Session;
 

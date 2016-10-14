@@ -39,14 +39,14 @@ public class ParamTest {
         System.out.println("After: b=" + b.getName());
     }
 
-    public static void tripleValue(double x) // doesn't work
-    {
+    // doesn't work
+    public static void tripleValue(double x) {
         x = 3 * x;
         System.out.println("End of method: x=" + x);
     }
 
-    public static void tripleSalary(Employee x) // works
-    {
+    // works
+    public static void tripleSalary(Employee x) {
         x.raiseSalary(200);
         System.out.println("End of method: salary=" + x.getSalary());
     }
@@ -60,8 +60,10 @@ public class ParamTest {
     }
 }
 
-class Employee // simplified Employee class
-{
+/**
+ * simplified Employee class
+ */
+class Employee {
     private String name;
     private double salary;
 

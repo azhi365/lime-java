@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter23.service;
+package org.walnuts.study.shiro.chapter23.service;
 
-import com.github.zhangkaitao.shiro.chapter23.dao.RoleDao;
-import com.github.zhangkaitao.shiro.chapter23.entity.Role;
+import org.walnuts.study.shiro.chapter23.dao.RoleDao;
+import org.walnuts.study.shiro.chapter23.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

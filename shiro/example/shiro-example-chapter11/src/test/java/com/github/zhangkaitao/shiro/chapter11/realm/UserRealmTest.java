@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter11.realm;
+package org.walnuts.study.shiro.chapter11.realm;
 
-import com.github.zhangkaitao.shiro.chapter11.BaseTest;
+import org.walnuts.study.shiro.chapter11.BaseTest;
 import junit.framework.Assert;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.ExcessiveAttemptsException;

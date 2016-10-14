@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter10;
+package org.walnuts.study.shiro.chapter10;
 
 import junit.framework.Assert;
 import org.apache.shiro.SecurityUtils;

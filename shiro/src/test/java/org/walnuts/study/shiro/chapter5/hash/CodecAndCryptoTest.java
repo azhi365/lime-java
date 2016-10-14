@@ -1,22 +1,19 @@
 package org.walnuts.study.shiro.chapter5.hash;
 
-import junit.framework.Assert;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.codec.CodecSupport;
 import org.apache.shiro.codec.Hex;
-import org.apache.shiro.crypto.*;
+import org.apache.shiro.crypto.AesCipherService;
+import org.apache.shiro.crypto.BlowfishCipherService;
+import org.apache.shiro.crypto.DefaultBlockCipherService;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.*;
 import org.apache.shiro.util.ByteSource;
 import org.apache.shiro.util.SimpleByteSource;
+import org.junit.Assert;
 import org.junit.Test;
 
-import javax.crypto.Cipher;
-import java.security.*;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.spec.EncodedKeySpec;
-import java.security.spec.PKCS8EncodedKeySpec;
-import java.security.spec.RSAPrivateKeySpec;
-import java.security.spec.X509EncodedKeySpec;
+import java.security.Key;
 
 /**
  * <p>User: Zhang Kaitao
@@ -24,7 +21,6 @@ import java.security.spec.X509EncodedKeySpec;
  * <p>Version: 1.0
  */
 public class CodecAndCryptoTest {
-
 
 
     @Test
@@ -63,7 +59,6 @@ public class CodecAndCryptoTest {
     }
 
 
-
     @Test
     public void testMd5() {
         String str = "hello";
@@ -84,7 +79,7 @@ public class CodecAndCryptoTest {
     }
 
     @Test
-       public void testSha256() {
+    public void testSha256() {
         String str = "hello";
         String salt = "123";
         String sha1 = new Sha256Hash(str, salt).toString();
@@ -119,7 +114,6 @@ public class CodecAndCryptoTest {
         System.out.println(simpleHash);
 
     }
-
 
 
     @Test

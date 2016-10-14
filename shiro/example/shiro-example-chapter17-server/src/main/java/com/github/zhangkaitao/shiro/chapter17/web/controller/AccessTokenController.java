@@ -1,8 +1,8 @@
-package com.github.zhangkaitao.shiro.chapter17.web.controller;
+package org.walnuts.study.shiro.chapter17.web.controller;
 
-import com.github.zhangkaitao.shiro.chapter17.Constants;
-import com.github.zhangkaitao.shiro.chapter17.service.OAuthService;
-import com.github.zhangkaitao.shiro.chapter17.service.UserService;
+import org.walnuts.study.shiro.chapter17.Constants;
+import org.walnuts.study.shiro.chapter17.service.OAuthService;
+import org.walnuts.study.shiro.chapter17.service.UserService;
 import org.apache.oltu.oauth2.as.issuer.MD5Generator;
 import org.apache.oltu.oauth2.as.issuer.OAuthIssuer;
 import org.apache.oltu.oauth2.as.issuer.OAuthIssuerImpl;

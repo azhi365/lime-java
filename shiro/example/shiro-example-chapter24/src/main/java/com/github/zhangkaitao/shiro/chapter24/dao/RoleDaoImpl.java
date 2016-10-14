@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter24.dao;
+package org.walnuts.study.shiro.chapter24.dao;
 
-import com.github.zhangkaitao.shiro.chapter24.entity.Role;
+import org.walnuts.study.shiro.chapter24.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

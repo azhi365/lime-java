@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter23.utils;
+package org.walnuts.study.shiro.chapter23.utils;
 
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.session.Session;

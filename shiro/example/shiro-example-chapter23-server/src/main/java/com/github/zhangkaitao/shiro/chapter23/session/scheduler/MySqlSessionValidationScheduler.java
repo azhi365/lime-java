@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter23.session.scheduler;
+package org.walnuts.study.shiro.chapter23.session.scheduler;
 
-import com.github.zhangkaitao.shiro.chapter23.utils.SerializableUtils;
+import org.walnuts.study.shiro.chapter23.utils.SerializableUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.*;
 import org.slf4j.Logger;

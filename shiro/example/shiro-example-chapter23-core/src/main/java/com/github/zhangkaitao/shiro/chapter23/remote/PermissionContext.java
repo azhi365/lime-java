@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter23.remote;
+package org.walnuts.study.shiro.chapter23.remote;
 
 import java.io.Serializable;
 import java.util.Set;

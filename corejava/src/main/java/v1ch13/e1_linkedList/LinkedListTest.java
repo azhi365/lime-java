@@ -1,4 +1,4 @@
-package v1ch13.linkedList;
+package v1ch13.e1_linkedList;
 
 import java.util.Iterator;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package v1ch13.priorityQueue;
+package v1ch13.e5_priorityQueue;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

@@ -11,9 +11,9 @@ import java.util.List;
  */
 public interface UserDao {
 
-    public User createUser(User user);
-    public User updateUser(User user);
-    public void deleteUser(Long userId);
+    User createUser(User user);
+    User updateUser(User user);
+    void deleteUser(Long userId);
 
     User findOne(Long userId);
 

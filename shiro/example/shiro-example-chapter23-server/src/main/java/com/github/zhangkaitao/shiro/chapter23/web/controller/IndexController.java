@@ -1,10 +1,10 @@
-package com.github.zhangkaitao.shiro.chapter23.web.controller;
+package org.walnuts.study.shiro.chapter23.web.controller;
 
-import com.github.zhangkaitao.shiro.chapter23.Constants;
-import com.github.zhangkaitao.shiro.chapter23.entity.Resource;
-import com.github.zhangkaitao.shiro.chapter23.service.AuthorizationService;
-import com.github.zhangkaitao.shiro.chapter23.service.ResourceService;
-import com.github.zhangkaitao.shiro.chapter23.web.bind.annotation.CurrentUser;
+import org.walnuts.study.shiro.chapter23.Constants;
+import org.walnuts.study.shiro.chapter23.entity.Resource;
+import org.walnuts.study.shiro.chapter23.service.AuthorizationService;
+import org.walnuts.study.shiro.chapter23.service.ResourceService;
+import org.walnuts.study.shiro.chapter23.web.bind.annotation.CurrentUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +27,7 @@ public class IndexController {
     private AuthorizationService authorizationService;
 
     @RequestMapping("/")
-    public String index(@CurrentUser com.github.zhangkaitao.shiro.chapter23.entity.User loginUser, Model model) {
+    public String index(@CurrentUser org.walnuts.study.shiro.chapter23.entity.User loginUser, Model model) {
         Set<String> permissions = authorizationService.findPermissions(Constants.SERVER_APP_KEY, loginUser.getUsername());
         List<Resource> menus = resourceService.findMenus(permissions);
         model.addAttribute("menus", menus);

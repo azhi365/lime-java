@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter19.service;
+package org.walnuts.study.shiro.chapter19.service;
 
-import com.github.zhangkaitao.shiro.chapter19.dao.OrganizationDao;
-import com.github.zhangkaitao.shiro.chapter19.entity.Organization;
+import org.walnuts.study.shiro.chapter19.dao.OrganizationDao;
+import org.walnuts.study.shiro.chapter19.entity.Organization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

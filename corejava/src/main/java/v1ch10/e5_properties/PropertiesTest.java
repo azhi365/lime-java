@@ -18,11 +18,9 @@ import java.util.Properties;
  */
 public class PropertiesTest {
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                PropertiesFrame frame = new PropertiesFrame();
-                frame.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            PropertiesFrame frame = new PropertiesFrame();
+            frame.setVisible(true);
         });
     }
 }

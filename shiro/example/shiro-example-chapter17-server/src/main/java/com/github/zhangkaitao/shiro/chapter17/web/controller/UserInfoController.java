@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter17.web.controller;
+package org.walnuts.study.shiro.chapter17.web.controller;
 
-import com.github.zhangkaitao.shiro.chapter17.Constants;
-import com.github.zhangkaitao.shiro.chapter17.service.OAuthService;
+import org.walnuts.study.shiro.chapter17.Constants;
+import org.walnuts.study.shiro.chapter17.service.OAuthService;
 import org.apache.oltu.oauth2.common.OAuth;
 import org.apache.oltu.oauth2.common.error.OAuthError;
 import org.apache.oltu.oauth2.common.exception.OAuthProblemException;

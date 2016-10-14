@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter24.web.controller;
+package org.walnuts.study.shiro.chapter24.web.controller;
 
-import com.github.zhangkaitao.shiro.chapter24.Constants;
+import org.walnuts.study.shiro.chapter24.Constants;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.SessionDAO;

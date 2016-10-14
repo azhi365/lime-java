@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter24.web.controller;
+package org.walnuts.study.shiro.chapter24.web.controller;
 
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;

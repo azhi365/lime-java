@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter23.client;
+package org.walnuts.study.shiro.chapter23.client;
 
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.springframework.context.ApplicationContext;

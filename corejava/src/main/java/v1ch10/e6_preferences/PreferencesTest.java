@@ -15,12 +15,10 @@ import java.util.prefs.Preferences;
  */
 public class PreferencesTest {
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                PreferencesFrame frame = new PreferencesFrame();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            PreferencesFrame frame = new PreferencesFrame();
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
         });
     }
 }
@@ -93,31 +91,27 @@ class PreferencesFrame extends JFrame {
 
         JMenuItem importItem = new JMenuItem("Import preferences");
         menu.add(importItem);
-        importItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                if (chooser.showOpenDialog(PreferencesFrame.this) == JFileChooser.APPROVE_OPTION) {
-                    try {
-                        InputStream in = new FileInputStream(chooser.getSelectedFile());
-                        Preferences.importPreferences(in);
-                        in.close();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+        importItem.addActionListener(event -> {
+            if (chooser.showOpenDialog(PreferencesFrame.this) == JFileChooser.APPROVE_OPTION) {
+                try {
+                    InputStream in = new FileInputStream(chooser.getSelectedFile());
+                    Preferences.importPreferences(in);
+                    in.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
 
         JMenuItem exitItem = new JMenuItem("Exit");
         menu.add(exitItem);
-        exitItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                node.putInt("left", getX());
-                node.putInt("top", getY());
-                node.putInt("width", getWidth());
-                node.putInt("height", getHeight());
-                node.put("title", getTitle());
-                System.exit(0);
-            }
+        exitItem.addActionListener(event -> {
+            node.putInt("left", getX());
+            node.putInt("top", getY());
+            node.putInt("width", getWidth());
+            node.putInt("height", getHeight());
+            node.put("title", getTitle());
+            System.exit(0);
         });
     }
 }

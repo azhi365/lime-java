@@ -1,10 +1,10 @@
-package com.github.zhangkaitao.shiro.chapter23.web.controller;
+package org.walnuts.study.shiro.chapter23.web.controller;
 
-import com.github.zhangkaitao.shiro.chapter23.entity.Authorization;
-import com.github.zhangkaitao.shiro.chapter23.service.AppService;
-import com.github.zhangkaitao.shiro.chapter23.service.AuthorizationService;
-import com.github.zhangkaitao.shiro.chapter23.service.RoleService;
-import com.github.zhangkaitao.shiro.chapter23.service.UserService;
+import org.walnuts.study.shiro.chapter23.entity.Authorization;
+import org.walnuts.study.shiro.chapter23.service.AppService;
+import org.walnuts.study.shiro.chapter23.service.AuthorizationService;
+import org.walnuts.study.shiro.chapter23.service.RoleService;
+import org.walnuts.study.shiro.chapter23.service.UserService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

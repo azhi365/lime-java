@@ -10,7 +10,7 @@
 
     <bean id="remoteService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
         <property name="serviceUrl" value="${client.remote.service.url}"/>
-        <property name="serviceInterface" value="com.github.zhangkaitao.shiro.chapter23.remote.RemoteServiceInterface"/>
+        <property name="serviceInterface" value="org.walnuts.study.shiro.chapter23.remote.RemoteServiceInterface"/>
     </bean>
 
 </beans>

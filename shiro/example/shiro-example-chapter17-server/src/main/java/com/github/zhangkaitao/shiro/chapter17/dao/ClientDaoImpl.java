@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter17.dao;
+package org.walnuts.study.shiro.chapter17.dao;
 
-import com.github.zhangkaitao.shiro.chapter17.entity.Client;
+import org.walnuts.study.shiro.chapter17.entity.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

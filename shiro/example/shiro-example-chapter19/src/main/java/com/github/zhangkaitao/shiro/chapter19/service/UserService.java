@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter19.service;
+package org.walnuts.study.shiro.chapter19.service;
 
-import com.github.zhangkaitao.shiro.chapter19.entity.User;
+import org.walnuts.study.shiro.chapter19.entity.User;
 
 import java.util.List;
 import java.util.Set;

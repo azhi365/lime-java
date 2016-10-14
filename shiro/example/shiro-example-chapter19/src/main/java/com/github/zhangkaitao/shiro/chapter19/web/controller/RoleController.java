@@ -1,8 +1,8 @@
-package com.github.zhangkaitao.shiro.chapter19.web.controller;
+package org.walnuts.study.shiro.chapter19.web.controller;
 
-import com.github.zhangkaitao.shiro.chapter19.entity.Role;
-import com.github.zhangkaitao.shiro.chapter19.service.ResourceService;
-import com.github.zhangkaitao.shiro.chapter19.service.RoleService;
+import org.walnuts.study.shiro.chapter19.entity.Role;
+import org.walnuts.study.shiro.chapter19.service.ResourceService;
+import org.walnuts.study.shiro.chapter19.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

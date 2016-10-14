@@ -15,12 +15,13 @@
         <module>web-client</module>
         <module>netty</module>
         <module>shiro</module>
+        <module>spring-boot</module>
     </modules>
     <packaging>pom</packaging>
     <name>Study</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.1.1.RELEASE</spring.version>
+        <spring.version>4.3.3.RELEASE</spring.version>
         <atomikos.version>3.9.3</atomikos.version>
         <aspectj.version>1.7.4</aspectj.version>
         <mysql-connector-version>5.1.29</mysql-connector-version>
@@ -148,14 +149,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.17</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>

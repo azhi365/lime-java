@@ -8,10 +8,10 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="remoteService" class="com.github.zhangkaitao.shiro.chapter23.remote.RemoteService"/>
+    <bean id="remoteService" class="org.walnuts.study.shiro.chapter23.remote.RemoteService"/>
 
     <bean name="/remoteService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
         <property name="service" ref="remoteService"/>
-        <property name="serviceInterface" value="com.github.zhangkaitao.shiro.chapter23.remote.RemoteServiceInterface"/>
+        <property name="serviceInterface" value="org.walnuts.study.shiro.chapter23.remote.RemoteServiceInterface"/>
     </bean>
 </beans>

@@ -9,7 +9,7 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- Realm实现 -->
-    <bean id="remoteRealm" class="com.github.zhangkaitao.shiro.chapter23.client.ClientRealm">
+    <bean id="remoteRealm" class="org.walnuts.study.shiro.chapter23.client.ClientRealm">
         <property name="cachingEnabled" value="false"/>
         <property name="appKey" value="${client.app.key}"/>
         <property name="remoteService" ref="remoteService"/>
@@ -44,7 +44,7 @@
     </bean>
 
     <!-- 会话DAO -->
-    <bean id="sessionDAO" class="com.github.zhangkaitao.shiro.chapter23.client.ClientSessionDAO">
+    <bean id="sessionDAO" class="org.walnuts.study.shiro.chapter23.client.ClientSessionDAO">
         <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
         <property name="appKey" value="${client.app.key}"/>
         <property name="remoteService" ref="remoteService"/>
@@ -72,10 +72,10 @@
         <property name="arguments" ref="securityManager"/>
     </bean>
 
-    <bean id="clientAuthenticationFilter" class="com.github.zhangkaitao.shiro.chapter23.client.ClientAuthenticationFilter"/>
+    <bean id="clientAuthenticationFilter" class="org.walnuts.study.shiro.chapter23.client.ClientAuthenticationFilter"/>
 
     <!-- Shiro的Web过滤器 -->
-    <bean id="shiroFilter" class="com.github.zhangkaitao.shiro.chapter23.client.ClientShiroFilterFactoryBean">
+    <bean id="shiroFilter" class="org.walnuts.study.shiro.chapter23.client.ClientShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="${client.login.url}"/>
         <property name="successUrl" value="${client.success.url}"/>

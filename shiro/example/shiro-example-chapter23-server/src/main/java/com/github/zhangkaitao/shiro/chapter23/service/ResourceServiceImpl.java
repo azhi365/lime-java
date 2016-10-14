@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter23.service;
+package org.walnuts.study.shiro.chapter23.service;
 
-import com.github.zhangkaitao.shiro.chapter23.dao.ResourceDao;
-import com.github.zhangkaitao.shiro.chapter23.entity.Resource;
+import org.walnuts.study.shiro.chapter23.dao.ResourceDao;
+import org.walnuts.study.shiro.chapter23.entity.Resource;
 import org.apache.shiro.authz.permission.WildcardPermission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

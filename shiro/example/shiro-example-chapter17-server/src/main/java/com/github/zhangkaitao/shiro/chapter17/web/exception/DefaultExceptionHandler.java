@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter17.web.exception;
+package org.walnuts.study.shiro.chapter17.web.exception;
 
 import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.http.HttpStatus;

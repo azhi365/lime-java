@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter23.session.dao;
+package org.walnuts.study.shiro.chapter23.session.dao;
 
-import com.github.zhangkaitao.shiro.chapter23.utils.SerializableUtils;
+import org.walnuts.study.shiro.chapter23.utils.SerializableUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.ValidatingSession;
 import org.apache.shiro.session.mgt.eis.CachingSessionDAO;

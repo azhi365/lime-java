@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter10;
+package org.walnuts.study.shiro.chapter10;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;

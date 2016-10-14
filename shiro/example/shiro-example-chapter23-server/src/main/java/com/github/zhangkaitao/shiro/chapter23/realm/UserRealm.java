@@ -1,9 +1,9 @@
-package com.github.zhangkaitao.shiro.chapter23.realm;
+package org.walnuts.study.shiro.chapter23.realm;
 
-import com.github.zhangkaitao.shiro.chapter23.Constants;
-import com.github.zhangkaitao.shiro.chapter23.entity.User;
-import com.github.zhangkaitao.shiro.chapter23.service.AuthorizationService;
-import com.github.zhangkaitao.shiro.chapter23.service.UserService;
+import org.walnuts.study.shiro.chapter23.Constants;
+import org.walnuts.study.shiro.chapter23.entity.User;
+import org.walnuts.study.shiro.chapter23.service.AuthorizationService;
+import org.walnuts.study.shiro.chapter23.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

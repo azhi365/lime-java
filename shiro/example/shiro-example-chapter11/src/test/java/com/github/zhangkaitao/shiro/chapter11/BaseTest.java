@@ -1,9 +1,9 @@
-package com.github.zhangkaitao.shiro.chapter11;
+package org.walnuts.study.shiro.chapter11;
 
-import com.github.zhangkaitao.shiro.chapter11.JdbcTemplateUtils;
-import com.github.zhangkaitao.shiro.chapter11.entity.Permission;
-import com.github.zhangkaitao.shiro.chapter11.entity.Role;
-import com.github.zhangkaitao.shiro.chapter11.entity.User;
+import org.walnuts.study.shiro.chapter11.JdbcTemplateUtils;
+import org.walnuts.study.shiro.chapter11.entity.Permission;
+import org.walnuts.study.shiro.chapter11.entity.Role;
+import org.walnuts.study.shiro.chapter11.entity.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.config.IniSecurityManagerFactory;

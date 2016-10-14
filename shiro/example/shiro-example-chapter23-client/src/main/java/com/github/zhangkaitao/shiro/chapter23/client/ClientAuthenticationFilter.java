@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter23.client;
+package org.walnuts.study.shiro.chapter23.client;
 
-import com.github.zhangkaitao.shiro.chapter23.core.ClientSavedRequest;
+import org.walnuts.study.shiro.chapter23.core.ClientSavedRequest;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;

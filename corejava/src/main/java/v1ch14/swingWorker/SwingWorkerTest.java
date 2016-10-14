@@ -20,12 +20,10 @@ import java.util.concurrent.ExecutionException;
  */
 public class SwingWorkerTest {
     public static void main(String[] args) throws Exception {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new SwingWorkerFrame();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-            }
+        EventQueue.invokeLater(() -> {
+            JFrame frame = new SwingWorkerFrame();
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
         });
     }
 }
@@ -62,30 +60,24 @@ class SwingWorkerFrame extends JFrame {
 
         openItem = new JMenuItem("Open");
         menu.add(openItem);
-        openItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                // show file chooser dialog
-                int result = chooser.showOpenDialog(null);
+        openItem.addActionListener(event -> {
+            // show file chooser dialog
+            int result = chooser.showOpenDialog(null);
 
-                // if file selected, set it as icon of the label
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    textArea.setText("");
-                    openItem.setEnabled(false);
-                    textReader = new TextReader(chooser.getSelectedFile());
-                    textReader.execute();
-                    cancelItem.setEnabled(true);
-                }
+            // if file selected, set it as icon of the label
+            if (result == JFileChooser.APPROVE_OPTION) {
+                textArea.setText("");
+                openItem.setEnabled(false);
+                textReader = new TextReader(chooser.getSelectedFile());
+                textReader.execute();
+                cancelItem.setEnabled(true);
             }
         });
 
         cancelItem = new JMenuItem("Cancel");
         menu.add(cancelItem);
         cancelItem.setEnabled(false);
-        cancelItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                textReader.cancel(true);
-            }
-        });
+        cancelItem.addActionListener(event -> textReader.cancel(true));
         pack();
     }
 

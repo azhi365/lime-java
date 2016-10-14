@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter23.remote;
+package org.walnuts.study.shiro.chapter23.remote;
 
-import com.github.zhangkaitao.shiro.chapter23.service.AuthorizationService;
+import org.walnuts.study.shiro.chapter23.service.AuthorizationService;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;

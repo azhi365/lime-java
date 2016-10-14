@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter23.client;
+package org.walnuts.study.shiro.chapter23.client;
 
-import com.github.zhangkaitao.shiro.chapter23.remote.RemoteServiceInterface;
+import org.walnuts.study.shiro.chapter23.remote.RemoteServiceInterface;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.CachingSessionDAO;
 

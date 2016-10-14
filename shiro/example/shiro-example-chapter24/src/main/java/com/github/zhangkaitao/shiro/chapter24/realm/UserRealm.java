@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter24.realm;
+package org.walnuts.study.shiro.chapter24.realm;
 
-import com.github.zhangkaitao.shiro.chapter24.entity.User;
-import com.github.zhangkaitao.shiro.chapter24.service.UserService;
+import org.walnuts.study.shiro.chapter24.entity.User;
+import org.walnuts.study.shiro.chapter24.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

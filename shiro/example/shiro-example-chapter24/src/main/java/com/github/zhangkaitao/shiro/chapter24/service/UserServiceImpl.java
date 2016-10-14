@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter24.service;
+package org.walnuts.study.shiro.chapter24.service;
 
-import com.github.zhangkaitao.shiro.chapter24.dao.UserDao;
-import com.github.zhangkaitao.shiro.chapter24.entity.User;
+import org.walnuts.study.shiro.chapter24.dao.UserDao;
+import org.walnuts.study.shiro.chapter24.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

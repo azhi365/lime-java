@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter23;
+package org.walnuts.study.shiro.chapter23;
 
 /**
  * <p>User: Zhang Kaitao

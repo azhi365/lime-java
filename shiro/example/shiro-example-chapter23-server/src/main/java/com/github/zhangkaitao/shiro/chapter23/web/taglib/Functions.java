@@ -1,8 +1,8 @@
-package com.github.zhangkaitao.shiro.chapter23.web.taglib;
+package org.walnuts.study.shiro.chapter23.web.taglib;
 
-import com.github.zhangkaitao.shiro.chapter23.entity.*;
-import com.github.zhangkaitao.shiro.chapter23.service.*;
-import com.github.zhangkaitao.shiro.spring.SpringUtils;
+import org.walnuts.study.shiro.chapter23.entity.*;
+import org.walnuts.study.shiro.chapter23.service.*;
+import org.walnuts.study.shiro.spring.SpringUtils;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;

@@ -26,7 +26,7 @@ public class MyIniWebEnvironment extends IniWebEnvironment {
         //2、创建FilterChainManager
         DefaultFilterChainManager filterChainManager = new DefaultFilterChainManager();
         //3、注册Filter
-        for(DefaultFilter filter : DefaultFilter.values()) {
+        for (DefaultFilter filter : DefaultFilter.values()) {
             filterChainManager.addFilter(filter.name(), (Filter) ClassUtils.newInstance(filter.getFilterClass()));
         }
         //4、注册URL-Filter的映射关系
@@ -37,9 +37,9 @@ public class MyIniWebEnvironment extends IniWebEnvironment {
 
         //5、设置Filter的属性
         FormAuthenticationFilter authcFilter =
-                (FormAuthenticationFilter)filterChainManager.getFilter("authc");
+                (FormAuthenticationFilter) filterChainManager.getFilter("authc");
         authcFilter.setLoginUrl("/login.jsp");
-        RolesAuthorizationFilter rolesFilter = (RolesAuthorizationFilter)filterChainManager.getFilter("roles");
+        RolesAuthorizationFilter rolesFilter = (RolesAuthorizationFilter) filterChainManager.getFilter("roles");
         rolesFilter.setUnauthorizedUrl("/unauthorized.jsp");
 
         filterChainResolver.setFilterChainManager(filterChainManager);

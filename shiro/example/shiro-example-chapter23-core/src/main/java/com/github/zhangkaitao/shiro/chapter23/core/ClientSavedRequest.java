@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.chapter23.core;
+package org.walnuts.study.shiro.chapter23.core;
 
 import org.apache.shiro.web.util.SavedRequest;
 

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.github.zhangkaitao.shiro.chapter23.web.bind.annotation;
+package org.walnuts.study.shiro.chapter23.web.bind.annotation;
 
-import com.github.zhangkaitao.shiro.chapter23.Constants;
+import org.walnuts.study.shiro.chapter23.Constants;
 
 import java.lang.annotation.*;
 

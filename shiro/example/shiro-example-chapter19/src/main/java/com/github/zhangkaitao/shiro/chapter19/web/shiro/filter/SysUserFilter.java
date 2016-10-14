@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter19.web.shiro.filter;
+package org.walnuts.study.shiro.chapter19.web.shiro.filter;
 
-import com.github.zhangkaitao.shiro.chapter19.Constants;
-import com.github.zhangkaitao.shiro.chapter19.service.UserService;
+import org.walnuts.study.shiro.chapter19.Constants;
+import org.walnuts.study.shiro.chapter19.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.PathMatchingFilter;
 import org.springframework.beans.factory.annotation.Autowired;

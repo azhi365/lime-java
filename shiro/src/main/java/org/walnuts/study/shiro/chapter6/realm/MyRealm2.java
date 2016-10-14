@@ -8,7 +8,7 @@ import org.apache.shiro.realm.Realm;
  * <p>Date: 14-1-29
  * <p>Version: 1.0
  */
-public class MyRealm2 implements Realm {
+public class    MyRealm2 implements Realm {
 
     @Override
     public String getName() {

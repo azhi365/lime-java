@@ -19,6 +19,7 @@ public class ThreadPoolTest {
         System.out.print("Enter keyword (e.g. volatile): ");
         String keyword = in.nextLine();
 
+        //pool
         ExecutorService pool = Executors.newCachedThreadPool();
 
         MatchCounter counter = new MatchCounter(new File(directory), keyword, pool);

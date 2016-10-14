@@ -21,6 +21,9 @@ public class LoginLogoutTest {
 
     private static String resourcePath = "classpath:chapter2/";
 
+    /**
+     * login/logout
+     */
     @Test
     public void testHelloworld() {
         Factory<org.apache.shiro.mgt.SecurityManager> factory = new IniSecurityManagerFactory(resourcePath + "shiro.ini");
@@ -42,6 +45,9 @@ public class LoginLogoutTest {
     }
 
 
+    /**
+     * single realm
+     */
     @Test
     public void testCustomRealm() {
         Factory<org.apache.shiro.mgt.SecurityManager> factory = new IniSecurityManagerFactory(resourcePath + "shiro-realm.ini");
@@ -63,6 +69,9 @@ public class LoginLogoutTest {
         subject.logout();
     }
 
+    /**
+     * multi realm
+     */
     @Test
     public void testCustomMultiRealm() {
         Factory<org.apache.shiro.mgt.SecurityManager> factory = new IniSecurityManagerFactory(resourcePath + "shiro-multi-realm.ini");
@@ -79,16 +88,18 @@ public class LoginLogoutTest {
             e.printStackTrace();
         }
 
-        Assert.assertEquals(true, subject.isAuthenticated());
+        Assert.assertTrue(subject.isAuthenticated());
 
         subject.logout();
     }
 
 
+    /**
+     * jdbc realm
+     */
     @Test
     public void testJDBCRealm() {
-        Factory<org.apache.shiro.mgt.SecurityManager> factory =
-                new IniSecurityManagerFactory(resourcePath + "shiro-jdbc-realm.ini");
+        Factory<org.apache.shiro.mgt.SecurityManager> factory = new IniSecurityManagerFactory(resourcePath + "shiro-jdbc-realm.ini");
 
         org.apache.shiro.mgt.SecurityManager securityManager = factory.getInstance();
         SecurityUtils.setSecurityManager(securityManager);

@@ -1,4 +1,4 @@
-package v1ch13.treeSet;
+package v1ch13.e3_4_treeSet;
 
 /**
  * @version 1.12 2012-01-26
@@ -10,8 +10,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**
- This program sorts a set of item by comparing
- their descriptions.
+ * This program sorts a set of item by comparing
+ * their descriptions.
  */
 public class TreeSetTest {
     public static void main(String[] args) {
@@ -21,12 +21,10 @@ public class TreeSetTest {
         parts.add(new Item("Modem", 9912));
         System.out.println(parts);
 
-        SortedSet<Item> sortByDescription = new TreeSet<>(new Comparator<Item>() {
-            public int compare(Item a, Item b) {
-                String descrA = a.getDescription();
-                String descrB = b.getDescription();
-                return descrA.compareTo(descrB);
-            }
+        SortedSet<Item> sortByDescription = new TreeSet<>((Comparator<Item>) (a, b) -> {
+            String descrA = a.getDescription();
+            String descrB = b.getDescription();
+            return descrA.compareTo(descrB);
         });
 
         sortByDescription.addAll(parts);

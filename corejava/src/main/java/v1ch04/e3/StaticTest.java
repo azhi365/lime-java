@@ -43,8 +43,7 @@ class Employee {
         return nextId; // returns static field
     }
 
-    public static void main(String[] args) // unit test
-    {
+    public static void main(String[] args) {// unit test
         Employee e = new Employee("Harry", 50000);
         System.out.println(e.getName() + " " + e.getSalary());
     }

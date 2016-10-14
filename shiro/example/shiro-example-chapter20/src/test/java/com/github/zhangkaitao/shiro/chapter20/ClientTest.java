@@ -1,6 +1,6 @@
-package com.github.zhangkaitao.shiro.chapter20;
+package org.walnuts.study.shiro.chapter20;
 
-import com.github.zhangkaitao.shiro.chapter20.codec.HmacSHA256Utils;
+import org.walnuts.study.shiro.chapter20.codec.HmacSHA256Utils;
 import junit.framework.Assert;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;

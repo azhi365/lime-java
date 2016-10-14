@@ -1,7 +1,7 @@
-package com.github.zhangkaitao.shiro.chapter17.web.controller;
+package org.walnuts.study.shiro.chapter17.web.controller;
 
-import com.github.zhangkaitao.shiro.chapter17.entity.Client;
-import com.github.zhangkaitao.shiro.chapter17.service.ClientService;
+import org.walnuts.study.shiro.chapter17.entity.Client;
+import org.walnuts.study.shiro.chapter17.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

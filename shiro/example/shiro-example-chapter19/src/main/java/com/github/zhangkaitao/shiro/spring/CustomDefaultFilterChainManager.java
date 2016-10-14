@@ -1,4 +1,4 @@
-package com.github.zhangkaitao.shiro.spring;
+package org.walnuts.study.shiro.spring;
 
 import org.apache.shiro.config.Ini;
 import org.apache.shiro.util.CollectionUtils;
