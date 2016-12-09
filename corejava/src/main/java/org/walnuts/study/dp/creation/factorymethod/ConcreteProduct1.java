@@ -1,0 +1,26 @@
+/**
+ * 
+ * @author yzhi
+ * @date 2012-1-19 下午02:40:31
+ * @copyright 2012 haitian.com All rights reserved
+ * @version V1.0	
+ *
+ */
+package org.walnuts.study.dp.creation.factorymethod;
+
+/**
+ * 具体产品类1
+ * @author YZhi
+ * @since 1.0
+ */
+public class ConcreteProduct1 extends Product {
+
+	/* (non-Javadoc)
+	 * @see creation.factorymethod.Product#method2()
+	 */
+	@Override
+	public void method2() {
+		System.out.println("method2 in ConcreteProduct1");
+	}
+
+}

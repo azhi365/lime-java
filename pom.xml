@@ -4,21 +4,18 @@
     <groupId>com.nanoutech</groupId>
     <artifactId>study</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>corejava</module>
-        <module>javatuning</module>
-        <module>concurrent</module>
-        <module>concurrency</module>
-        <module>designpattern</module>
-        <module>plantuml</module>
-        <module>web-server</module>
-        <module>web-client</module>
-        <module>netty</module>
-        <module>shiro</module>
-        <module>spring-boot</module>
-    </modules>
     <packaging>pom</packaging>
-    <name>Study</name>
+    <name>study</name>
+    <modules>
+        <module>shiro</module>
+        <module>corejava</module>
+        <module>netty</module>
+        <module>plantuml</module>
+        <!--<module>shiro</module>-->
+        <module>spring-boot</module>
+        <module>web-client</module>
+        <module>web-server</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.3.3.RELEASE</spring.version>
