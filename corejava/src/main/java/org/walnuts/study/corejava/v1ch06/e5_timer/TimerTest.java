@@ -24,12 +24,14 @@ public class TimerTest {
         JOptionPane.showMessageDialog(null, "Quit program?");
         System.exit(0);
     }
-}
 
-class TimePrinter implements ActionListener {
-    public void actionPerformed(ActionEvent event) {
-        Date now = new Date();
-        System.out.println("At the tone, the time is " + now);
-        Toolkit.getDefaultToolkit().beep();
+    static class TimePrinter implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            Date now = new Date();
+            System.out.println("At the tone, the time is " + now);
+            Toolkit.getDefaultToolkit().beep();
+        }
     }
 }
+
+

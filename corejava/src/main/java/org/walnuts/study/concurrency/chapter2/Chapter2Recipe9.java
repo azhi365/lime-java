@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 未找到
  * Main class of the example. Creates an object with the statistics of the
  * building and executes two threads that simulates two sensors in the building
  */
