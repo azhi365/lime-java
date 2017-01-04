@@ -9,7 +9,7 @@ package kilim;
 import java.lang.reflect.Field;
 
 /**
- * This class serves as a context to manage and store the continuation stack.
+ * This class serves as a context to manage and store the continuation Stack.
  * The actual capture of the closure is done in the Weaver-transformed code.
  */
 
@@ -17,12 +17,12 @@ public final class Fiber {
 
 //    public boolean debug = false;
     /**
-     * The current frame's state (local vars  and elements of the operand stack 
+     * The current frame's state (local vars  and elements of the operand Stack
      * that will be needed when the Fiber is resumed. It is always kept equal 
      * to stateStack[iStack] if iStack is in the (0..stateStack.length-1) range, 
      * and null otherwise. This is used by the generated code to avoid 
      * having to manipulate stateStack in the generated code, and to isolate
-     * all stack manipulations to up() and down().
+     * all Stack manipulations to up() and down().
      */
     public State               curState;
 
@@ -224,9 +224,9 @@ public final class Fiber {
      * by down() on the way down and decremented by a corresponding up() when returning 
      * or pausing. If, however, an exception is thrown, we lose track of where we
      * are in the hierarchy. We recalibrate iStack by creating a dummy exception
-     * and comparing it to the stack depth of an exception taken earlier.
+     * and comparing it to the Stack depth of an exception taken earlier.
      * This is done in scheduler.getStackDepth();
-     * A sample stack trace of the dummy exception looks as follows
+     * A sample Stack trace of the dummy exception looks as follows
      * <pre>
      *   at kilim.Fiber.upEx(Fiber.java:250)
      *   at kilim.test.ex.ExCatch.normalCatch(ExCatch.java)
@@ -235,10 +235,10 @@ public final class Fiber {
      *   at kilim.Task.runExecute(Task.java)
      *   at kilim.WorkerThread.run(WorkerThread.java:11)
      * </pre>
-     * We have to figure out the stack depth (iStack) of the method
+     * We have to figure out the Stack depth (iStack) of the method
      * that caught the exception and called upEx ("normalCatch" here).
-     * The call stack below runExecute may be owned by the scheduler, which
-     * may permit more than one task to build up on the stack. For this reason,
+     * The call Stack below runExecute may be owned by the scheduler, which
+     * may permit more than one task to build up on the Stack. For this reason,
      * we let the scheduler tell us the depth of upEx below the task's execute().
      * @return Fiber.pc (note: in contrast up() returns status)
      */
@@ -257,7 +257,7 @@ public final class Fiber {
     }
     
     /**
-     * Called by the weaved code while rewinding the stack. If we are about to
+     * Called by the weaved code while rewinding the Stack. If we are about to
      * call a virtual pausable method, we need an object reference on which to
      * call that method. The next state has that information in state.self
      */
@@ -276,7 +276,7 @@ public final class Fiber {
     }
 
     /**
-     * Called by the generated code before pausing and unwinding its stack
+     * Called by the generated code before pausing and unwinding its Stack
      * frame.
      * 
      * @param state

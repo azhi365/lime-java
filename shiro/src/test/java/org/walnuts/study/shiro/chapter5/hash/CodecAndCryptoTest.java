@@ -125,8 +125,7 @@ public class CodecAndCryptoTest {
         hashService.setRandomNumberGenerator(new SecureRandomNumberGenerator());//用于生成公盐。默认就这个
         hashService.setHashIterations(1); //生成Hash值的迭代次数
 
-        HashRequest request = new HashRequest.Builder()
-                .setAlgorithmName("MD5").setSource(ByteSource.Util.bytes("hello"))
+        HashRequest request = new HashRequest.Builder().setAlgorithmName("MD5").setSource(ByteSource.Util.bytes("hello"))
                 .setSalt(ByteSource.Util.bytes("123")).setIterations(2).build();
         String hex = hashService.computeHash(request).toHex();
         System.out.println(hex);

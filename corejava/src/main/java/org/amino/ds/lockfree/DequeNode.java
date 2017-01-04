@@ -19,7 +19,7 @@ package org.amino.ds.lockfree;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * Internal Deque node class. This class is used by both EBDeque and
+ * Internal UseConcurrentLinkedDeque node class. This class is used by both EBDeque and
  * LockFreeDeque.
  * 
  * @param <E>

@@ -1,11 +1,9 @@
 /**
  * Copyright (c) 2005-2012 https://github.com/zhangkaitao
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.apache.shiro.session.mgt;
-
-import org.apache.shiro.session.mgt.SimpleSession;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -24,38 +22,24 @@ public class OnlineSession extends SimpleSession {
     // changes do not require a change to this number.  If you need to generate
     // a new number in this case, use the JDK's 'serialver' program to generate it.
     private static final long serialVersionUID = -7125642695178165650L;
-
-    public static enum OnlineStatus {
-        on_line("在线"), hidden("隐身"), force_logout("强制退出");
-        private final String info;
-
-        private OnlineStatus(String info) {
-            this.info = info;
-        }
-
-        public String getInfo() {
-            return info;
-        }
-    }
-
     private static final int USER_AGENT_BIT_MASK = 1 << bitIndexCounter++;
     private static final int STATUS_BIT_MASK = 1 << bitIndexCounter++;
-
-
     /**
      * 用户浏览器类型
      */
     private String userAgent;
-
     /**
      * 在线状态
      */
     private OnlineStatus status = OnlineStatus.on_line;
-
     /**
      * 用户登录时系统IP
      */
     private String systemHost;
+    /**
+     * 属性是否改变 优化session数据同步
+     */
+    private transient boolean attributeChanged = false;
 
     public OnlineSession() {
         super();
@@ -65,6 +49,21 @@ public class OnlineSession extends SimpleSession {
         super(host);
     }
 
+    /**
+     * Returns {@code true} if the given {@code bitMask} argument indicates that the specified field has been
+     * serialized and therefore should be read during deserialization, {@code false} otherwise.
+     *
+     * @param bitMask      the aggregate bitmask for all fields that have been serialized.  Individual bits represent
+     *                     the fields that have been serialized.  A bit set to 1 means that corresponding field has
+     *                     been serialized, 0 means it hasn't been serialized.
+     * @param fieldBitMask the field bit mask constant identifying which bit to inspect (corresponds to a class attribute).
+     * @return {@code true} if the given {@code bitMask} argument indicates that the specified field has been
+     *         serialized and therefore should be read during deserialization, {@code false} otherwise.
+     * @since 1.0
+     */
+    private static boolean isFieldPresent(short bitMask, int fieldBitMask) {
+        return (bitMask & fieldBitMask) != 0;
+    }
 
     public String getUserAgent() {
         return userAgent;
@@ -89,11 +88,6 @@ public class OnlineSession extends SimpleSession {
     public void setSystemHost(String systemHost) {
         this.systemHost = systemHost;
     }
-
-    /**
-     * 属性是否改变 优化session数据同步
-     */
-    private transient boolean attributeChanged = false;
 
     public void markAttributeChanged() {
         this.attributeChanged = true;
@@ -175,19 +169,16 @@ public class OnlineSession extends SimpleSession {
         return (short) bitMask;
     }
 
-    /**
-     * Returns {@code true} if the given {@code bitMask} argument indicates that the specified field has been
-     * serialized and therefore should be read during deserialization, {@code false} otherwise.
-     *
-     * @param bitMask      the aggregate bitmask for all fields that have been serialized.  Individual bits represent
-     *                     the fields that have been serialized.  A bit set to 1 means that corresponding field has
-     *                     been serialized, 0 means it hasn't been serialized.
-     * @param fieldBitMask the field bit mask constant identifying which bit to inspect (corresponds to a class attribute).
-     * @return {@code true} if the given {@code bitMask} argument indicates that the specified field has been
-     *         serialized and therefore should be read during deserialization, {@code false} otherwise.
-     * @since 1.0
-     */
-    private static boolean isFieldPresent(short bitMask, int fieldBitMask) {
-        return (bitMask & fieldBitMask) != 0;
+    public static enum OnlineStatus {
+        on_line("在线"), hidden("隐身"), force_logout("强制退出");
+        private final String info;
+
+        private OnlineStatus(String info) {
+            this.info = info;
+        }
+
+        public String getInfo() {
+            return info;
+        }
     }
 }

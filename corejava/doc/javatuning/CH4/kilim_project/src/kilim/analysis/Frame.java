@@ -46,21 +46,21 @@ public class Frame {
     }
     
     /**
-     * Merge the local variables and stack from the incoming frame 
+     * Merge the local variables and Stack from the incoming frame
      * into the current frame. 
      * @param inframe -- incoming frame
      * @param localsOnly -- true for exception handlers, because the
-     *      stack is cleared.
+     *      Stack is cleared.
      * @param usage -- Only those locals are merged that are deemed
      *        live (@see Usage#isLiveIn(int)) 
      * @return this, if the merge didn't change anything
-     *      or a new Frame if the operation changed a slot on the stack
+     *      or a new Frame if the operation changed a slot on the Stack
      *      or a local variable
      */
     public Frame merge(Frame inframe, boolean localsOnly, Usage usage) {
         int slen = stacklen;
 
-        Value[] nst = null; // new stack. allocated if needed
+        Value[] nst = null; // new Stack. allocated if needed
         
         if (!localsOnly) {
             Value[] st = stack;
@@ -228,7 +228,7 @@ public class Frame {
         try {
             return stack[--stacklen];
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new RuntimeException("Verify error. Expected word in stack, but stack is empty");
+            throw new RuntimeException("Verify error. Expected word in Stack, but Stack is empty");
         }
     }
     

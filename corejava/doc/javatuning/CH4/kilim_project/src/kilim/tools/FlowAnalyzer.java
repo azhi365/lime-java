@@ -34,7 +34,7 @@ import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 
 /**
- * Used to dump the stack and locals at the beginning of each basic block
+ * Used to dump the Stack and locals at the beginning of each basic block
  * @author ram
  */
 public class FlowAnalyzer {
@@ -87,7 +87,7 @@ public class FlowAnalyzer {
             AbstractInsnNode ainode = bb.getInstruction(bb.startPos);
             if (ainode instanceof MethodInsnNode) {
                 MethodInsnNode m = (MethodInsnNode)ainode;
-                int n = getNumArgs(m); // This many will get consumed from stack
+                int n = getNumArgs(m); // This many will get consumed from Stack
                 pn("Call(" + n + "): " + m.owner + "." + m.name + m.desc);
                 indent(2);
                 pn("Inframe: ");

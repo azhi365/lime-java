@@ -11,7 +11,7 @@ public class ExFlow {
                 a = new ExD();;
             }
         }
-        // at join, the stack must have types of [I,Lkilim.test.ex.ExFlow; and Lkilim.test.ex.ExA;
+        // at join, the Stack must have types of [I,Lkilim.test.ex.ExFlow; and Lkilim.test.ex.ExA;
         // local vars-> 0:Lkilim.test.ex.ExFlow; 1:Lkilim.test.ex.ExA; 2:int 3:UNDEFINED 
         int x = 10 * join(a);
         System.out.println(i);

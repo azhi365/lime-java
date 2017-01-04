@@ -35,7 +35,7 @@ public class TestFlow extends Base {
         // assertEquals("Lkilim/test/ex/ExFlow;", f.getLocal(0));
         assertEquals("Lkilim/test/ex/ExA;", f.getLocal(1).getTypeDesc());
         // assertSame(D_INT, f.getLocal(2));
-        // Check operand stack
+        // Check operand Stack
         assertSame(D_BYTE, f.getStack(0).getTypeDesc());
         assertEquals("Lkilim/test/ex/ExFlow;", f.getStack(1).getTypeDesc());
         assertEquals("Lkilim/test/ex/ExA;", f.getStack(2).getTypeDesc());

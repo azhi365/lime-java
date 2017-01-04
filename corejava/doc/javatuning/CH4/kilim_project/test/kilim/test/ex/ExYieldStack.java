@@ -27,27 +27,27 @@ public class ExYieldStack extends ExYieldBase {
         }
     }
 
-    // load stack with a number of types, call a static pausable method
-    // The call to verify ensures that the stack is loaded with
+    // load Stack with a number of types, call a static pausable method
+    // The call to verify ensures that the Stack is loaded with
     // a few elements before the call to pausable_x is made.
     void testStackBottom_st() throws Pausable {
         verify(fd, fs, fl, fa, pausable_st(10, doPause));
     }
 
-    // load stack with a number of types, call a virtual pausable method
+    // load Stack with a number of types, call a virtual pausable method
     void testStackBottom_v() throws Pausable {
         verify(fd, fs, pausable_v(fl), fa, ff);
     }
 
-    // load stack with a number of types, call a virtual pausable method
+    // load Stack with a number of types, call a virtual pausable method
     // on another object
     void testStackBottom_av() throws Pausable {
         verify(fd, fs, fl, fa, new ExYieldStack(testCase).pausable_v(10));
     }
     
-    // test a deep hierarchy that makes the state stack grow, have
+    // test a deep hierarchy that makes the state Stack grow, have
     // long parameters and return values, and pause in the middle
-    // of the computation so it is saves longs on the stack
+    // of the computation so it is saves longs on the Stack
     void testFactorial_st() throws Pausable {
         long n = fact_st(15L, doPause);
         if (n != 1307674368000L) {
@@ -58,7 +58,7 @@ public class ExYieldStack extends ExYieldBase {
     // Issue 8 on github
     void testLoop() throws Pausable {
         // The other tests don't test constant propagation, but not dynamic operands
-        // on stack.
+        // on Stack.
         
     }
     
@@ -69,7 +69,7 @@ public class ExYieldStack extends ExYieldBase {
             return 1L;
         } 
         if (n == 10) {
-            // Initial state stack is 10 elements long, so it is worth
+            // Initial state Stack is 10 elements long, so it is worth
             // testing a pause here. 
             if (doPause) Task.sleep(10);
         }
@@ -89,7 +89,7 @@ public class ExYieldStack extends ExYieldBase {
             return 1L;
         } 
         if (n == 10) {
-            // Initial state stack is 10 elements long, so it is worth
+            // Initial state Stack is 10 elements long, so it is worth
             // testing a pause here. 
             if (doPause) Task.sleep(50);
         }

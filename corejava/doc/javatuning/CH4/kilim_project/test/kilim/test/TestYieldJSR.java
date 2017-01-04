@@ -26,7 +26,7 @@ public class TestYieldJSR extends TestCase {
 
     /*
      * jsr sub1, jsr sub2 , jsr sub1 in sequence. Tests inlining
-     * (because sub1 is called twice), and tests whether stack
+     * (because sub1 is called twice), and tests whether Stack
      * and locals are preserved.
      */
     public void testMultiplePausableJSRs() throws Exception {

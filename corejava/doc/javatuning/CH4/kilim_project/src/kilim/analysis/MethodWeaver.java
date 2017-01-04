@@ -330,7 +330,7 @@ public class MethodWeaver {
         }
 
         mv.visitFieldInsn(GETFIELD, FIBER_CLASS, "pc", D_INT);
-        // The prelude doesn't need more than two words in the stack.
+        // The prelude doesn't need more than two words in the Stack.
         // The callweaver gen* methods may need more. 
         ensureMaxStack(2);
 
@@ -402,7 +402,7 @@ public class MethodWeaver {
      * }
      * RESTORE_F:
      *   if (fiber.curStatus == HAS_STATE) {
-     *      restore variables from the state. don't restore stack
+     *      restore variables from the state. don't restore Stack
      *      goto NORMAL_EXCEPTION_HANDLING
      *   }
      * ... other RESTOREs
@@ -414,7 +414,7 @@ public class MethodWeaver {
         Label resumeLabel = new Label();
         VMType.loadVar(mv, VMType.TOBJECT, getFiberVar());
         mv.visitMethodInsn(INVOKEVIRTUAL, FIBER_CLASS, "upEx", "()I");
-        // fiber.pc is on stack
+        // fiber.pc is on Stack
         Label[] labels = new Label[cwList.size()];
         int[] keys = new int[cwList.size()];
         for (int i = 0; i < cwList.size(); i++) {
@@ -496,8 +496,8 @@ public class MethodWeaver {
         mv.visitMethodInsn(INVOKESTATIC, TASK_CLASS, "errNotWoven", "()V");
         
         String rdesc = TypeDesc.getReturnTypeDesc(mf.desc);
-        // stack size depends on return type, because we want to load
-        // a constant of the appropriate size on the stack for 
+        // Stack size depends on return type, because we want to load
+        // a constant of the appropriate size on the Stack for
         // the corresponding xreturn instruction.
         int stacksize = 0;
         if (rdesc != D_VOID) {

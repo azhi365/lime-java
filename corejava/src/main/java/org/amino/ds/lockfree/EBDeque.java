@@ -27,7 +27,7 @@ import org.amino.utility.EliminationArray;
 import org.amino.utility.IEliminationArray;
 
 /**
- * This Deque implementation is based on the algorithm defined in the follwoing
+ * This UseConcurrentLinkedDeque implementation is based on the algorithm defined in the follwoing
  * paper: CAS-Based Lock-Free Algorithm for Shared Deques By Maged M. Michael
  * 
  * <p>
@@ -390,15 +390,15 @@ public class EBDeque<E> extends AbstractQueue<E> implements Deque<E> {
 	static final boolean BACK_OFF = true;
 
 	/**
-	 * This is the internal class of the Deque to keep track of two anchor
-	 * pointers (left and right) and also the status of the Deque. The status
+	 * This is the internal class of the UseConcurrentLinkedDeque to keep track of two anchor
+	 * pointers (left and right) and also the status of the UseConcurrentLinkedDeque. The status
 	 * can be STABLE, RPUSH and LPUSH. The anchor also keeps a count of the
 	 * current number of elements in the deque.
 	 */
 	private static final int STABLE = 0, RPUSH = 1, LPUSH = 2;
 
 	/**
-	 * This is the method that does a right push into the Deque. It takes the
+	 * This is the method that does a right push into the UseConcurrentLinkedDeque. It takes the
 	 * data as input, creates a deque node with the data and then pushes it onto
 	 * the deque from right.
 	 * 
@@ -411,7 +411,7 @@ public class EBDeque<E> extends AbstractQueue<E> implements Deque<E> {
 		AnchorType<E> nanchor = new AnchorType<E>();
 		// int oStamp, n1Stamp, n2Stamp;
 
-		// Create new stack node with the data
+		// Create new Stack node with the data
 		newtop = new DequeNode<E>(d);
 
 		int exp = 1;
@@ -479,7 +479,7 @@ public class EBDeque<E> extends AbstractQueue<E> implements Deque<E> {
 	}
 
 	/**
-	 * This is the method to pop the Right node from the Deque.
+	 * This is the method to pop the Right node from the UseConcurrentLinkedDeque.
 	 * 
 	 * @return element polled
 	 */
@@ -551,7 +551,7 @@ public class EBDeque<E> extends AbstractQueue<E> implements Deque<E> {
 	}
 
 	/**
-	 * This is the method that does a left push into the Deque. It takes the
+	 * This is the method that does a left push into the UseConcurrentLinkedDeque. It takes the
 	 * data as input, creates a deque node with the data and then pushes it onto
 	 * the deque from left.
 	 * 

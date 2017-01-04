@@ -28,7 +28,7 @@ public class Ex_vs_Ret {
             ret(depth);
         }
         long elapsed = System.currentTimeMillis() - start;
-        System.out.println("Iterations = : " +ntimes + ", stack depth = " + depth);
+        System.out.println("Iterations = : " +ntimes + ", Stack depth = " + depth);
         System.out.println("ret ms: " + elapsed);
 
         start = System.currentTimeMillis();

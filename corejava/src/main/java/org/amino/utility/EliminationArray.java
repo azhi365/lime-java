@@ -24,12 +24,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  * to reducing number of modification to central data structure. The idea comes
  * from following observation:
  * 
- * <blockquote>If two threads execute push() or pop() operation on a stack,
- * there is no need to modify the stack at all. We can simply transfer object
+ * <blockquote>If two threads execute push() or pop() operation on a Stack,
+ * there is no need to modify the Stack at all. We can simply transfer object
  * from push() to the pop() and both operations succeed.</blockquote>
  * 
  * Two arrays are created to store two type of operations, which are inversion
- * of each other. It can be used to stack, deque, and even list. The algorithm
+ * of each other. It can be used to Stack, deque, and even list. The algorithm
  * comes from following paper, but not exactly the same. <p/>
  * 
  * <pre>

@@ -23,11 +23,11 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * This Deque implementation is based on the algorithm defined in the follwoing
+ * This UseConcurrentLinkedDeque implementation is based on the algorithm defined in the follwoing
  * paper: CAS-Based Lock-Free Algorithm for Shared Deques By Maged M. Michael
  * 
  * <p>
- * As the terminology between below description differs from the Deque interface
+ * As the terminology between below description differs from the UseConcurrentLinkedDeque interface
  * defined in Java 6, please translate left = last and right = first.
  * 
  * Right => First, Left => Last
@@ -51,8 +51,8 @@ import java.util.concurrent.atomic.AtomicReference;
  * any given time and the status has to show that it is unstable with the flag
  * having a value of RPUSH or LPUSH depending on the problem side (right or
  * left). Unstable states: 1) x.left.right != x, where x is the rightmost node.
- * Deque status flag = RPUSH 2) x.right.left != x, where x is the leftmost node.
- * Deque status flag = LPUSH It is acceptable for a deque to have no problems
+ * UseConcurrentLinkedDeque status flag = RPUSH 2) x.right.left != x, where x is the leftmost node.
+ * UseConcurrentLinkedDeque status flag = LPUSH It is acceptable for a deque to have no problems
  * but the status flag may show that it is in an unstable state. So, the deque
  * may have a status of RPUSH or LPUSH but still be coherent (the other two
  * unstable states)
@@ -92,7 +92,7 @@ public class LockFreeDeque<E> extends AbstractQueue<E> implements Deque<E> {
 	private static final int BACKOFFTIME = 20;
 
 	/**
-	 * The different states of the Deque.
+	 * The different states of the UseConcurrentLinkedDeque.
 	 */
 
 	private static final int STABLE = 0, RPUSH = 1, LPUSH = 2;
@@ -335,7 +335,7 @@ public class LockFreeDeque<E> extends AbstractQueue<E> implements Deque<E> {
 	}
 
 	/**
-	 * This is the method that does a right push into the Deque. It takes the
+	 * This is the method that does a right push into the UseConcurrentLinkedDeque. It takes the
 	 * data as input, creates a deque node with the data and then pushes it onto
 	 * the deque from right.
 	 * 
@@ -435,7 +435,7 @@ public class LockFreeDeque<E> extends AbstractQueue<E> implements Deque<E> {
 	}
 
 	/**
-	 * This is the method to pop the Right node from the Deque.
+	 * This is the method to pop the Right node from the UseConcurrentLinkedDeque.
 	 * 
 	 * @return head of this deque, or null if empty.
 	 */
@@ -451,11 +451,11 @@ public class LockFreeDeque<E> extends AbstractQueue<E> implements Deque<E> {
 			// Get a current copy of the anchor variable
 			old_anchor = anchor.get();
 
-			// Deque is empty; return null
+			// UseConcurrentLinkedDeque is empty; return null
 			if (old_anchor.right == null)
 				return null;
 
-			// Deque has just one node.
+			// UseConcurrentLinkedDeque has just one node.
 			if (old_anchor.right == old_anchor.left) {
 				// Create a the new anchor, with the left and right pointer both
 				// null; empty deque
@@ -520,7 +520,7 @@ public class LockFreeDeque<E> extends AbstractQueue<E> implements Deque<E> {
 	}
 
 	/**
-	 * This is the method that does a left push into the Deque. It takes the
+	 * This is the method that does a left push into the UseConcurrentLinkedDeque. It takes the
 	 * data as input, creates a deque node with the data and then pushes it onto
 	 * the deque from left.
 	 * 
@@ -587,7 +587,7 @@ public class LockFreeDeque<E> extends AbstractQueue<E> implements Deque<E> {
 				 */
 				if (anchor.compareAndSet(old_anchor, update_anchor)) {
 					/*
-					 * Deque is in unstable state after the insert; stabilize
+					 * UseConcurrentLinkedDeque is in unstable state after the insert; stabilize
 					 * the it at first
 					 */
 					this.stabilizeLeft(update_anchor);
@@ -672,7 +672,7 @@ public class LockFreeDeque<E> extends AbstractQueue<E> implements Deque<E> {
 					}
 				}
 			} else if (oldAnchor.status == STABLE) {
-				// Deque is stable so we can try to remove element from it
+				// UseConcurrentLinkedDeque is stable so we can try to remove element from it
 				DequeNode<E> prev = oldAnchor.left.right.get();
 
 				/*

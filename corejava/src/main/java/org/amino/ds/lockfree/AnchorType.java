@@ -19,11 +19,11 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
 /**
  * Internal anchor type used to record the current status of deque. This class
- * contains all important information about Deque:
+ * contains all important information about UseConcurrentLinkedDeque:
  * <ol>
  * <li>pointer to the the 1st node from left</li>
  * <li>pointer to the 1st node from right</li>
- * <li>size of Deque</li>
+ * <li>size of UseConcurrentLinkedDeque</li>
  * </ol>
  * 
  * @param <E>
@@ -39,7 +39,7 @@ class AnchorType<E> {
 	/**
 	 * This is a flag variable to indicate the status of deque. It can be one of
 	 * the STABLE, RPUSH, LPUSH. This field has default access privilege since
-	 * Deque will visit it directly.
+	 * UseConcurrentLinkedDeque will visit it directly.
 	 */
 	volatile int status;
 
@@ -60,7 +60,7 @@ class AnchorType<E> {
 	DequeNode<E> left;
 
 	/**
-	 * Number of elements inside the Deque.
+	 * Number of elements inside the UseConcurrentLinkedDeque.
 	 */
 	int numElements;
 
@@ -121,9 +121,9 @@ class AnchorType<E> {
 	}
 
 	/**
-	 * Return size of Deque.
+	 * Return size of UseConcurrentLinkedDeque.
 	 * 
-	 * @return size of Deque
+	 * @return size of UseConcurrentLinkedDeque
 	 */
 	public int getSize() {
 		return this.numElements;

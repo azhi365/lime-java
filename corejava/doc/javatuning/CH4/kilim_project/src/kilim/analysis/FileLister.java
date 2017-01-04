@@ -133,7 +133,7 @@ class DirIterator extends FileContainer {
         if (ret.isDirectory()) {
             // prepare for next round
             File[] files = ret.listFiles();
-            // first add all directories to stack, then the files, so that
+            // first add all directories to Stack, then the files, so that
             // all files in a directory are processed continuously
             for (int i = files.length - 1; i >= 0; i--) {
                 File ff = files[i];

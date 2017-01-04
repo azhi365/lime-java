@@ -12,9 +12,9 @@ import java.util.NoSuchElementException;
 /**
  * A Generator, from the caller's perspective, looks like a normal iterator 
  * that produces values.  Because a standard iterator's next() method 
- * must return every time, the programmer is forced to manage the stack 
+ * must return every time, the programmer is forced to manage the Stack
  * explicitly. The Generator class instead allows one to write a
- * task with an automatically managed stack and couple it to an 
+ * task with an automatically managed Stack and couple it to an
  * iterator interface. 
  *  
  * For example:

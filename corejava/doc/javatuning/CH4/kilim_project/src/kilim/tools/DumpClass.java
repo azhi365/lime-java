@@ -361,7 +361,7 @@ class DumpMethodVisitor implements Opcodes, MethodVisitor {
         indent(4);
     }
     public void visitMaxs(int maxStack, int maxLocals) {
-        pn(".limit stack " + maxStack);
+        pn(".limit Stack " + maxStack);
         pn(".limit locals " + maxLocals);
     }
     public void visitEnd() {

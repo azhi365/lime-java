@@ -15,8 +15,8 @@ import java.util.BitSet;
  * more than 31 local variables, the vectors are represented by int bitmaps. For more than this, the
  * basic block creates an instance of BigUsage that is functionally identical (TODO)
  * 
- * Note that we don't need to track usage of operand stack. All elements of the operand stack are
- * always live, and always need to be stored and restored (during stack switching). This is not true
+ * Note that we don't need to track usage of operand Stack. All elements of the operand Stack are
+ * always live, and always need to be stored and restored (during Stack switching). This is not true
  * of local vars; a var may have a valid value which may not be used downstream, so we track which
  * vars must be taken seriously.
  * 

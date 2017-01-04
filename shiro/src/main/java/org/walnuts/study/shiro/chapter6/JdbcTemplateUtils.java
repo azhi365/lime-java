@@ -13,7 +13,7 @@ public class JdbcTemplateUtils {
     private static JdbcTemplate jdbcTemplate;
 
     public static JdbcTemplate jdbcTemplate() {
-        if(jdbcTemplate == null) {
+        if (jdbcTemplate == null) {
             jdbcTemplate = createJdbcTemplate();
         }
         return jdbcTemplate;

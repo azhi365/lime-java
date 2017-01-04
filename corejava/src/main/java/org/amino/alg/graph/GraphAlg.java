@@ -445,7 +445,7 @@ public final class GraphAlg {
 	 * parallel 2 test the efficiency of trimming operation from [WC McLendon
 	 * III 2001] 3 test the efficiency of [LK Fleischer2003] optimization 4 what
 	 * if the targeted graph is being modified? 5 maintain some objects per
-	 * thread, such as queue, stack, set, map. so as to reduce frequent creation
+	 * thread, such as queue, Stack, set, map. so as to reduce frequent creation
 	 * and garbage collection 6 test the performance before and after this
 	 * optimization
 	 * 
@@ -910,7 +910,7 @@ public final class GraphAlg {
 								&& innerWnode.color == WrappedNode.WHITE)
 							stack.push(innerWnode);
 					}
-				}// while(!stack.isEmpty())
+				}// while(!Stack.isEmpty())
 			}// while(iter.hasNext())
 		}
 	}

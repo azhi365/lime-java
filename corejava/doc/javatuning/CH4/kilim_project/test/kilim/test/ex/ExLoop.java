@@ -12,8 +12,8 @@ public class ExLoop extends Task {
     @Override
     public void execute() throws Pausable, Exception {
         for (int i = 0; i < foo.length; i++) {
-            // foo and i are on the operand stack before dummy gets called. This
-            // test checks that the operand stack is correctly restored.
+            // foo and i are on the operand Stack before dummy gets called. This
+            // test checks that the operand Stack is correctly restored.
             foo[i] = dummy();
         }
     }

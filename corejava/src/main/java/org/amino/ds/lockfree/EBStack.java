@@ -34,7 +34,7 @@ public class EBStack<E> implements IStack<E> {
 	 */
 	private static final int BACKOFF = 6;
 	/**
-	 * Top pointer of stack.
+	 * Top pointer of Stack.
 	 */
 	AtomicReference<Node<E>> top = new AtomicReference<Node<E>>(null);
 	/**
@@ -60,7 +60,7 @@ public class EBStack<E> implements IStack<E> {
 	 * Specify size of internal elimination array.
 	 * 
 	 * @param size
-	 *            default size of stack
+	 *            default size of Stack
 	 */
 	public EBStack(int size) {
 		ea = new EliminationArray(size);
@@ -72,7 +72,7 @@ public class EBStack<E> implements IStack<E> {
 	static final boolean BACK_OFF = true;
 
 	/**
-	 * Node definition for stack.
+	 * Node definition for Stack.
 	 * 
 	 * @param <E>
 	 *            type of element in node
@@ -101,7 +101,7 @@ public class EBStack<E> implements IStack<E> {
 	/**
 	 * Pop data from the Stack.
 	 * 
-	 * @return topmost element of the stack.
+	 * @return topmost element of the Stack.
 	 */
 	public E pop() {
 		Node<E> oldTop, newTop;
@@ -142,7 +142,7 @@ public class EBStack<E> implements IStack<E> {
 	 * Push data onto Stack.
 	 * 
 	 * @param d
-	 *            data to be pushed onto the stack.
+	 *            data to be pushed onto the Stack.
 	 */
 	public void push(E d) {
 		Node<E> oldTop, newTop;
@@ -175,7 +175,7 @@ public class EBStack<E> implements IStack<E> {
 	/**
 	 * Check to see if Stack is empty.
 	 * 
-	 * @return true if stack is empty.
+	 * @return true if Stack is empty.
 	 */
 	public boolean isEmpty() {
 		// if (top.getReference() == null)
@@ -190,7 +190,7 @@ public class EBStack<E> implements IStack<E> {
 	/**
 	 * Return copy of the top data on the Stack.
 	 * 
-	 * @return copy of top of stack, or null if empty.
+	 * @return copy of top of Stack, or null if empty.
 	 */
 	public E peek() {
 		// if (top.getReference() == null)

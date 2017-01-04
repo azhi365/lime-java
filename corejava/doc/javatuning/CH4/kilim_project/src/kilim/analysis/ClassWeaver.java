@@ -188,7 +188,7 @@ public class ClassWeaver {
      * </pre>
      * 
      * If there's no data to store, we use the kilim.State class directly to
-     * store the basic amount of data necessary to restore the stack.
+     * store the basic amount of data necessary to restore the Stack.
      */
 
     String createStateClass(ValInfoList valInfoList) {
@@ -212,7 +212,7 @@ public class ClassWeaver {
         mw.visitInsn(ALOAD_0);
         mw.visitMethodInsn(INVOKESPECIAL, STATE_CLASS, "<init>", "()V");
         mw.visitInsn(RETURN);
-        // this code uses a maximum of one stack element and one local variable
+        // this code uses a maximum of one Stack element and one local variable
         mw.visitMaxs(1, 1);
         mw.visitEnd();
         // create fields of the appropriate type.

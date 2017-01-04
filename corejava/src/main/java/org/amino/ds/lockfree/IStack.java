@@ -17,10 +17,10 @@
 package org.amino.ds.lockfree;
 
 /**
- * interface definition of stack.
+ * interface definition of Stack.
  * 
  * @param <E>
- *            type of element in stack
+ *            type of element in Stack
  */
 public interface IStack<E> {
     /**
@@ -40,7 +40,7 @@ public interface IStack<E> {
     void push(E e);
 
     /**
-     * @return true if stack is empty, otherwise false
+     * @return true if Stack is empty, otherwise false
      */
     boolean isEmpty();
 }

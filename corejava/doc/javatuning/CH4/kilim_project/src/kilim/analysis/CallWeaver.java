@@ -91,7 +91,7 @@ import org.objectweb.asm.tree.MethodInsnNode;
  * <dl>
  * <li> <b>Rewind</b>: At the beginning of the method, right after the opening
  * switch statement (switch fiber.pc), which is the "rewind" portion. This stage
- * pushes in (mostly) dummy values on the stack and jumps to the next method
+ * pushes in (mostly) dummy values on the Stack and jumps to the next method
  * invocation in the cycle. </li>
  * 
  * <li> <b>Call</b>: The actual call. We push fiber as the last argument to the
@@ -104,18 +104,18 @@ import org.objectweb.asm.tree.MethodInsnNode;
  * An explanation of some terms used in the code may be useful.
  * 
  * Much of this code concerns itself with storing and retrieving values from/to
- * the stack and the local variables. The stack consists of three logical parts:<br>
+ * the Stack and the local variables. The Stack consists of three logical parts:<br>
  * 
  * <pre>
  *   +--------------+----------------------+---------------+
- *   | Stack bottom | callee obj reference | args for call | (Top of stack)
+ *   | Stack bottom | callee obj reference | args for call | (Top of Stack)
  *   +--------------+----------------------+---------------+
  * </pre>
  * 
- * The callee's object reference and the arguments at the top of stack are
+ * The callee's object reference and the arguments at the top of Stack are
  * consumed by the method invocation. If the call is static, there is no object
- * reference, of course. The bottom of the stack (which may also be empty)
- * refers to the part of the stack that is left over once the args are consumed.
+ * reference, of course. The bottom of the Stack (which may also be empty)
+ * refers to the part of the Stack that is left over once the args are consumed.
  * This is the part that we need to save if we have to yield.
  * <p>
  * 
@@ -183,11 +183,11 @@ public class CallWeaver {
     }
 
     /**
-     * The basic block's frame tells us the number of parameters in the stack
+     * The basic block's frame tells us the number of parameters in the Stack
      * and which local variables are needed later on.
      * 
-     * If the method is pausable, we'll need the bottom part of the stack and
-     * the object reference from the top part of the stack to be able to resume
+     * If the method is pausable, we'll need the bottom part of the Stack and
+     * the object reference from the top part of the Stack to be able to resume
      * it. We don't need to worry about the arguments, because they will be
      * saved (if needed) in the _called_ method's state.
      * 
@@ -206,12 +206,12 @@ public class CallWeaver {
 
         /*
          * Create ValInfos for each Value that needs to be saved (all live-in
-         * vars (except var 0, if not static) and all stack bottom vars count,
+         * vars (except var 0, if not static) and all Stack bottom vars count,
          * except if they are duplicates of earlier ones or are constants which
          * can be reproduced in bytecode itself.
          * 
-         * Process local vars before the stack, so that we can figure out which
-         * elements of the stack are duplicates. Saving the stack requires more
+         * Process local vars before the Stack, so that we can figure out which
+         * elements of the Stack are duplicates. Saving the Stack requires more
          * processing, and the more we can reduce it, the better.
          */
 
@@ -233,7 +233,7 @@ public class CallWeaver {
         }
 
         /*
-         * All stack values at the bottom (those not consumed by the called
+         * All Stack values at the bottom (those not consumed by the called
          * method) will have to be saved, if they are are not already accounted
          * for or they are constants.
          */
@@ -284,7 +284,7 @@ public class CallWeaver {
      * The following template is produced in the method's prelude for each
      * pausable method. 
      * F_REWIND: 
-     *   for each bottom stack operand
+     *   for each bottom Stack operand
      *      introduce a dummy constant of the appropriate type.
      *         (iconst_0, aconst_null, etc.)
      *      if the call is not static, 
@@ -315,11 +315,11 @@ public class CallWeaver {
             i += v.isCategory2() ? 2 : 1;
         }
 
-        // store dummy values in stack. The constants have to correspond
+        // store dummy values in Stack. The constants have to correspond
         // to the types of each of the bottom elements.
         int numBottom = getNumBottom();
 
-        // spos == stack pos. Note that it is incremented beyond the
+        // spos == Stack pos. Note that it is incremented beyond the
         // 'for' loop below.
         int spos;
         for (spos = 0; spos < numBottom; spos++) {
@@ -332,7 +332,7 @@ public class CallWeaver {
             }
         }
         if (!isStaticCall()) {
-            // The next element in the stack after numBottom is the object
+            // The next element in the Stack after numBottom is the object
             // reference for the callee. This can't be a dummy because it 
             // is needed by the invokevirtual call. If this reference
             // is found in the local vars, we'll use it, otherwise we need
@@ -351,7 +351,7 @@ public class CallWeaver {
         }
 
         int len = f.getStackLen();
-        // fill rest of stack with dummy args
+        // fill rest of Stack with dummy args
         for (; spos < len; spos++) {
             Value v = f.getStack(spos);
             int vmt = VMType.toVmType(v.getTypeDesc());
@@ -363,11 +363,11 @@ public class CallWeaver {
 
     /**
      * Before we make the target call, we need to call fiber.down(), to update
-     * it on the depth of the stack. genPostCall subsequently arranges to call
+     * it on the depth of the Stack. genPostCall subsequently arranges to call
      * fiber.up(). We also need to push the fiber as the last argument to the
      * pausable method. We accomplish both of these objectives by having
      * fiber.down() do its book-keeping and return fiber, which is left on the
-     * stack before the call is made.
+     * Stack before the call is made.
      * 
      * <pre>
      *             
@@ -404,7 +404,7 @@ public class CallWeaver {
      *    default:
      *    0: goto RESUME; // Not yielding , no State --  resume normal operations
      *    1: goto RESTORE; // Not yielding, has State -- restore state before resuming
-     *    2: goto SAVE; // Yielding, no state -- save state before unwinding stack
+     *    2: goto SAVE; // Yielding, no state -- save state before unwinding Stack
      *    3: goto UNWIND // Yielding, has state -- nothing to do but unwind.
      * }
      * SAVE:
@@ -441,14 +441,14 @@ public class CallWeaver {
     /**
      * Code for the case where we are yielding, and we have state built up from
      * a previous call. There's nothing meaningful to do except keep the
-     * verifier happy. Pop the bottom stack, then return a dummy return value
+     * verifier happy. Pop the bottom Stack, then return a dummy return value
      * (if this method -- note: not the called method -- returns a value)
      * 
      * @param mv
      */
     private void genUnwind(MethodVisitor mv, Label unwindLabel) {
         mv.visitLabel(unwindLabel);
-        // After the call returns, the stack would be left with numBottom plus
+        // After the call returns, the Stack would be left with numBottom plus
         // return value
 
         // pop callee's dummy return value first
@@ -483,11 +483,11 @@ public class CallWeaver {
      * Yielding, but state hasn't been captured yet. We create a state object
      * and save each object in valInfoList in its corresponding field.
      * 
-     * Note that we save each stack item into a scratch register before loading
+     * Note that we save each Stack item into a scratch register before loading
      * it into a field. The reason is that we need to get the State ref under
-     * the stack item before we can do a putfield. The alternative is to load
+     * the Stack item before we can do a putfield. The alternative is to load
      * the State item, then do a swap or a dup_x2;pop (depending on the value's
-     * category). We'll go with the earlier approach because stack manipulations
+     * category). We'll go with the earlier approach because Stack manipulations
      * don't seem to perform as well in the current crop of JVMs.
      * 
      * @param mv
@@ -534,7 +534,7 @@ public class CallWeaver {
         }
         mv.visitFieldInsn(PUTFIELD, STATE_CLASS, "pc", D_INT);
 
-        // First save bottom stack into state
+        // First save bottom Stack into state
         int i = getNumBottom() - 1;
         for (; i >= 0; i--) {
             Value v = f.getStack(i);
@@ -545,9 +545,9 @@ public class CallWeaver {
                 mv.visitInsn(v.category() == 2 ? POP2 : POP);
             } else {
                 /**
-                 * xstore <scratchVar> ; send stack elem to some local var 
+                 * xstore <scratchVar> ; send Stack elem to some local var
                  * aload <stateVar>    ; load state 
-                 * xload <scratchVar>  ; get stack elem back 
+                 * xload <scratchVar>  ; get Stack elem back
                  * putfield ...        ; state.fx =
                  */
                 int var = allocVar(vi.val.category());
@@ -562,7 +562,7 @@ public class CallWeaver {
         // Now load up registers into fields
         int fieldNum = 0;
         for (ValInfo vi : valInfoList) {
-            // Ignore values on stack
+            // Ignore values on Stack
             if (vi.var == -1)
                 continue;
             // aload state var
@@ -614,7 +614,7 @@ public class CallWeaver {
      *          for each value in frame.var 
      *               if val is constant or is in valInfoList, 
      *                   push constant or load field (appropriately) 
-     *          for each value in bottom stack
+     *          for each value in bottom Stack
      *                 restore value similar to above 
      *          restore return value if any from scratch register
      * </pre>
@@ -626,7 +626,7 @@ public class CallWeaver {
         int retVar = -1;
         int retctype = -1;
         if (numBottom > 0) {
-            // We have dummy values sitting in the stack. pop 'em.
+            // We have dummy values sitting in the Stack. pop 'em.
             // But first, check if we have a real return value on top
             String retType = getReturnType();
             if (retType != D_VOID) {
@@ -635,7 +635,7 @@ public class CallWeaver {
                 retVar = allocVar(VMType.category[retctype]);
                 storeVar(mv, retctype, retVar);
             }
-            // pop dummy values from stack bottom
+            // pop dummy values from Stack bottom
             for (int i = numBottom-1; i >= 0; i--) {
                 Value v = f.getStack(i);
                 int insn = v.isCategory1() ? POP : POP2;
@@ -649,7 +649,7 @@ public class CallWeaver {
         }
         genRestoreVars(mv, stateVar);
 
-        // Now restore the bottom values in the stack from state
+        // Now restore the bottom values in the Stack from state
         for (int i = 0; i < numBottom; i++) {
             Value v = f.getStack(i);
             if (v.isConstant()) {
@@ -661,7 +661,7 @@ public class CallWeaver {
                     mv.visitFieldInsn(GETFIELD, stateClassName, vi.fieldName, vi.fieldDesc());
                     checkcast(mv, v);
                 } else {
-                    // this stack value is a duplicate of a local var, which has
+                    // this Stack value is a duplicate of a local var, which has
                     // already been loaded and is of the right type
                     loadVar(mv, vi.vmt, vi.var);
                 }
@@ -670,7 +670,7 @@ public class CallWeaver {
 
         // restore the saved return value, if any
         // But we would have popped and saved the return value only
-        // if there were any dummy values in the stack bottom to be
+        // if there were any dummy values in the Stack bottom to be
         // cleared out. If not, we wouldn't have bothered
         // popping the return value in the first place.
         if (numBottom > 0) {
@@ -729,7 +729,7 @@ public class CallWeaver {
                     mv.visitFieldInsn(GETFIELD, stateClassName, vi.fieldName, vi.fieldDesc());
                     checkcast(mv, v); // don't need to do this in the constant case
                 } else {
-                    // It is a duplicate of another var. No need to load this var from stack
+                    // It is a duplicate of another var. No need to load this var from Stack
                     assert vi.var < i;
                     loadVar(mv, vi.vmt, vi.var);
                 }
@@ -747,7 +747,7 @@ public class CallWeaver {
     }
 
     /**
-     * We have loaded a value of one of the five VM types into the stack and we
+     * We have loaded a value of one of the five VM types into the Stack and we
      * need to cast it to the value's type, if necessary
      * 
      * @param mv
@@ -882,7 +882,7 @@ public class CallWeaver {
 
 class ValInfo implements Comparable<ValInfo> {
     /**
-     * The var to which the value belongs. It remains undefined if it is a stack
+     * The var to which the value belongs. It remains undefined if it is a Stack
      * item.
      */
     int    var = -1;

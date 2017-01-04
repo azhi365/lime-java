@@ -96,7 +96,7 @@ public class Scheduler {
     }
     
     /**
-     * This is called in the WorkerThread's stack. It transfers a runnable task to the given worker thread's
+     * This is called in the WorkerThread's Stack. It transfers a runnable task to the given worker thread's
      * list of runnables. If the task prefers a different worker thread, then the search continues (after notifying
      * the other thread that it has a task to execute).   
      * 

@@ -299,7 +299,7 @@ public class Asm {
     }
 
     static Pattern localsPattern     = Pattern.compile(".limit +locals +([0-9]+)");
-    static Pattern stackPattern      = Pattern.compile(".limit +stack +([0-9]+)");
+    static Pattern stackPattern      = Pattern.compile(".limit +Stack +([0-9]+)");
     static Pattern catchPattern      = Pattern.compile(".catch +(" + classNamePatternStr + ") +from +([\\w]+) +to +([\\w]+) +using +([\\w]+)");
     static Pattern annotationPattern = Pattern.compile(".annotation +((visible) )?([\\w/;]+)");
     private void parseMethodDirective() {

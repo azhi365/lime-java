@@ -465,7 +465,7 @@ public class BasicBlock implements Comparable<BasicBlock> {
 
     /*
      * This is the main workhorse of the flow analysis phase, translating each
-     * instruction's effects on the stack and local variables. Unlike the 
+     * instruction's effects on the Stack and local variables. Unlike the
      * verifier which tracks the flow  of types, this method tracks values,
      * which allows us to track types as well as the flow of constant values
      * and set the stage for SSA-style optimizations.
@@ -474,8 +474,8 @@ public class BasicBlock implements Comparable<BasicBlock> {
         Value v, v1, v2, v3, v4;
         Frame frame = startFrame.dup();
         if (isCatchHandler()) {
-            // When an exception is thrown, the stack is cleared
-            // and the thrown exception is pushed into the stack
+            // When an exception is thrown, the Stack is cleared
+            // and the thrown exception is pushed into the Stack
             frame.clearStack();
             frame.push(Value.make(startPos, caughtExceptionType));
         } else if (hasFlag(IS_SUBROUTINE)) {
@@ -905,7 +905,7 @@ public class BasicBlock implements Comparable<BasicBlock> {
                             frame.pop();
                         }
                         if (frame.stacklen != 0) {
-                            throw new InternalError("stack non null at method return");
+                            throw new InternalError("Stack non null at method return");
                         }
                         break;
                         

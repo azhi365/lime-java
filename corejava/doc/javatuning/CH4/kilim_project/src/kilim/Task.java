@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * A base class for tasks. A task is a lightweight thread (it contains its 
- * own stack in the form of a fiber). A concrete subclass of Task must
+ * own Stack in the form of a fiber). A concrete subclass of Task must
  * provide a pausable execute method. 
  *
  */
@@ -30,8 +30,8 @@ public abstract class Task implements EventSubscriber {
     static final AtomicInteger idSource = new AtomicInteger();
 
     /**
-     * The stack manager in charge of rewinding and unwinding
-     * the stack when Task.pause() is called.
+     * The Stack manager in charge of rewinding and unwinding
+     * the Stack when Task.pause() is called.
      */
     protected Fiber            fiber;
 
@@ -131,7 +131,7 @@ public abstract class Task implements EventSubscriber {
      * The generated code calls Fiber.upEx, which in turn calls
      * this to find out out where the current method is w.r.t
      * the closest _runExecute method. 
-     * @return the number of stack frames above _runExecute(), not including
+     * @return the number of Stack frames above _runExecute(), not including
      * this method
      */
     public int getStackDepth() {
@@ -160,7 +160,7 @@ public abstract class Task implements EventSubscriber {
         
         boolean doSchedule = false;
         // We don't check pauseReason while resuming (to verify whether
-        // it is worth returning to a pause state. The code at the top of stack 
+        // it is worth returning to a pause state. The code at the top of Stack
         // will be doing that anyway.
         synchronized(this) {
             if (done || running) return false;
