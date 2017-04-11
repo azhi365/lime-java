@@ -1,0 +1,14 @@
+@startuml
+ShiroController --> UsernamePasswordToken:new():token
+ShiroController --> SecurityUtils: getSubject():webDelegatingSubject
+SecurityUtils --> WebDelegatingSubject: login(token)
+WebDelegatingSubject --> DefaultSecurityManager:login(this, token)
+DefaultSecurityManager --> DefaultSecurityManager:authenticate(token)
+DefaultSecurityManager --> ModularRealmAuthenticator:authenticationToken(token)
+ModularRealmAuthenticator --> ModularRealmAuthenticator:doSingleRealmAuthentication()
+ModularRealmAuthenticator --> ModularRealmAuthenticator:getRealms()返回自定定义Realms
+ModularRealmAuthenticator --> xxxMkkJdbcRealm:getAuthenticationInfo(token);
+xxxMkkJdbcRealm --> xxxMkkJdbcRealm:assertCredentialsMatch()
+xxxMkkJdbcRealm --> CredentialsMatcher:doCredentialsMatch()
+ShiroController <-- xxxMkkJdbcRealm:正常返回SimpleAuthenticationInfo，失败抛出异常
+@enduml

@@ -2,13 +2,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.nanoutech</groupId>
-    <artifactId>study</artifactId>
+    <artifactId>lime</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>study</name>
+    <name>lime</name>
     <modules>
-        <module>shiro</module>
         <module>corejava</module>
+        <module>shiro</module>
         <module>netty</module>
         <module>plantuml</module>
         <!--<module>shiro</module>-->
@@ -42,7 +42,6 @@
                 <artifactId>javaee-api</artifactId>
                 <version>7.0</version>
             </dependency>
-
             <!-- activiti-->
             <dependency>
                 <groupId>org.activiti</groupId>

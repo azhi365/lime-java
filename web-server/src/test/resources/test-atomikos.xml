@@ -128,7 +128,7 @@
 		<aop:advisor pointcut-ref="bussinessService" advice-ref="txAdvice" />
 	</aop:config>
 
-	<bean id="userDao" class="com.nanoutech.test.jta.dao.UserDao" />
-	<bean id="userService" class="com.nanoutech.test.jta.service.UserService" />
+	<bean id="userDao" class="com.nanoutech.lime.test.jta.dao.UserDao" />
+	<bean id="userService" class="com.nanoutech.lime.test.jta.service.UserService" />
 
 </beans>  

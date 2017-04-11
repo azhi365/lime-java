@@ -17,5 +17,5 @@
 
     <dubbo:protocol name="dubbo" port="20880"/>
 
-    <dubbo:service interface="com.nanoutech.dubbo.IDemoService" ref="demoService"/>
+    <dubbo:service interface="com.nanoutech.lime.dubbo.IDemoService" ref="demoService"/>
 </beans>

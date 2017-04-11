@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <artifactId>study</artifactId>
+        <artifactId>lime</artifactId>
         <groupId>com.nanoutech</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>study-web-client</artifactId>
+    <artifactId>lime-web-client</artifactId>
     <packaging>war</packaging>
-    <name>study-web-client</name>
+    <name>lime-web-client</name>
     <url>http://maven.apache.org</url>
     <dependencies>
 
@@ -107,6 +107,6 @@
 
     </dependencies>
     <build>
-        <finalName>study-web-client</finalName>
+        <finalName>lime-web-client</finalName>
     </build>
 </project>

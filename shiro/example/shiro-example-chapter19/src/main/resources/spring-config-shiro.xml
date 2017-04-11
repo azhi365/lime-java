@@ -9,7 +9,7 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 缓存管理器 -->
-    <bean id="cacheManager" class="org.walnuts.study.shiro.spring.SpringCacheManagerWrapper">
+    <bean id="cacheManager" class="com.nanoutech.lime.lime.shiro.spring.SpringCacheManagerWrapper">
         <property name="cacheManager" ref="springCacheManager"/>
     </bean>
 

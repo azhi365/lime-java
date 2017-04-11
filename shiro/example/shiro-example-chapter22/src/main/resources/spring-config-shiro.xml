@@ -9,12 +9,12 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 缓存管理器 -->
-    <bean id="cacheManager" class="org.walnuts.study.shiro.spring.SpringCacheManagerWrapper">
+    <bean id="cacheManager" class="com.nanoutech.lime.lime.shiro.spring.SpringCacheManagerWrapper">
         <property name="cacheManager" ref="springCacheManager"/>
     </bean>
 
     <!-- 凭证匹配器 -->
-    <bean id="credentialsMatcher" class="org.walnuts.study.shiro.chapter22.credentials.RetryLimitHashedCredentialsMatcher">
+    <bean id="credentialsMatcher" class="com.nanoutech.lime.lime.shiro.chapter22.credentials.RetryLimitHashedCredentialsMatcher">
         <constructor-arg ref="cacheManager"/>
         <property name="hashAlgorithmName" value="md5"/>
         <property name="hashIterations" value="2"/>
@@ -22,7 +22,7 @@
     </bean>
 
     <!-- Realm实现 -->
-    <bean id="userRealm" class="org.walnuts.study.shiro.chapter22.realm.UserRealm">
+    <bean id="userRealm" class="com.nanoutech.lime.lime.shiro.chapter22.realm.UserRealm">
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
         <property name="cachingEnabled" value="false"/>
         <!--<property name="authenticationCachingEnabled" value="true"/>-->
@@ -93,17 +93,17 @@
     </bean>
 
 
-    <bean id="sysUserFilter" class="org.walnuts.study.shiro.chapter22.web.shiro.filter.SysUserFilter"/>
+    <bean id="sysUserFilter" class="com.nanoutech.lime.lime.shiro.chapter22.web.shiro.filter.SysUserFilter"/>
 
     <!-- 基于Form表单的身份验证过滤器 -->
-    <bean id="authcFilter" class="org.walnuts.study.shiro.chapter22.jcaptcha.MyFormAuthenticationFilter">
+    <bean id="authcFilter" class="com.nanoutech.lime.lime.shiro.chapter22.jcaptcha.MyFormAuthenticationFilter">
         <property name="usernameParam" value="username"/>
         <property name="passwordParam" value="password"/>
         <property name="rememberMeParam" value="rememberMe"/>
         <property name="failureKeyAttribute" value="shiroLoginFailure"/>
     </bean>
 
-    <bean id="jCaptchaValidateFilter" class="org.walnuts.study.shiro.chapter22.jcaptcha.JCaptchaValidateFilter">
+    <bean id="jCaptchaValidateFilter" class="com.nanoutech.lime.lime.shiro.chapter22.jcaptcha.JCaptchaValidateFilter">
         <property name="jcaptchaEbabled" value="true"/>
         <property name="jcaptchaParam" value="jcaptchaCode"/>
         <property name="failureKeyAttribute" value="shiroLoginFailure"/>

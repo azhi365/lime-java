@@ -6,8 +6,8 @@
         <version>1.4.1.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>study-spring-boot</artifactId>
-    <name>study-spring-boot</name>
+    <artifactId>lime-spring-boot</artifactId>
+    <name>lime-spring-boot</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -24,7 +24,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>study-spring-boot</finalName>
+        <finalName>lime-spring-boot</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

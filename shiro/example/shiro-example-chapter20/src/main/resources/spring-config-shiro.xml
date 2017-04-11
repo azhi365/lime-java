@@ -9,12 +9,12 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- Realm实现 -->
-    <bean id="statelessRealm" class="org.walnuts.study.shiro.chapter20.realm.StatelessRealm">
+    <bean id="statelessRealm" class="com.nanoutech.lime.lime.shiro.chapter20.realm.StatelessRealm">
         <property name="cachingEnabled" value="false"/>
     </bean>
 
     <!-- Subject工厂 -->
-    <bean id="subjectFactory" class="org.walnuts.study.shiro.chapter20.mgt.StatelessDefaultSubjectFactory"/>
+    <bean id="subjectFactory" class="com.nanoutech.lime.lime.shiro.chapter20.mgt.StatelessDefaultSubjectFactory"/>
 
     <!-- 会话管理器 -->
     <bean id="sessionManager" class="org.apache.shiro.session.mgt.DefaultSessionManager">
@@ -35,7 +35,7 @@
         <property name="arguments" ref="securityManager"/>
     </bean>
 
-    <bean id="statelessAuthcFilter" class="org.walnuts.study.shiro.chapter20.filter.StatelessAuthcFilter"/>
+    <bean id="statelessAuthcFilter" class="com.nanoutech.lime.lime.shiro.chapter20.filter.StatelessAuthcFilter"/>
 
     <!-- Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
