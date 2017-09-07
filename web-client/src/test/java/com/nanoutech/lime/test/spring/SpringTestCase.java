@@ -1,7 +1,7 @@
-package com.nanoutech.lime.test.spring;
+package com.innstack.lime.test.spring;
 
-import com.nanoutech.lime.dubbo.IDemoService;
-import com.nanoutech.lime.test.SpringBaseTestCase;
+import com.innstack.lime.dubbo.IDemoService;
+import com.innstack.lime.test.SpringBaseTestCase;
 import org.junit.Test;
 
 public class SpringTestCase extends SpringBaseTestCase {

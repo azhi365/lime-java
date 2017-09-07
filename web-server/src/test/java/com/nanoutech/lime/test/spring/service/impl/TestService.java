@@ -1,9 +1,9 @@
 /**
  * nanoutech.com
  */
-package com.nanoutech.lime.test.spring.service.impl;
+package com.innstack.lime.test.spring.service.impl;
 
-import com.nanoutech.lime.test.spring.service.ITestService;
+import com.innstack.lime.test.spring.service.ITestService;
 import org.springframework.stereotype.Service;
 
 /**

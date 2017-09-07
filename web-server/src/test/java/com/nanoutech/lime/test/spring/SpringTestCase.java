@@ -1,9 +1,9 @@
-package com.nanoutech.lime.test.spring;
+package com.innstack.lime.test.spring;
 
 import javax.annotation.Resource;
 
-import com.nanoutech.lime.test.base.SpringBaseTestCase;
-import com.nanoutech.lime.test.spring.service.ITestService;
+import com.innstack.lime.test.base.SpringBaseTestCase;
+import com.innstack.lime.test.spring.service.ITestService;
 import org.junit.Test;
 
 public class SpringTestCase extends SpringBaseTestCase {

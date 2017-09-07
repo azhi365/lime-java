@@ -1,11 +1,11 @@
-package com.nanoutech.lime.test.jms;
+package com.innstack.lime.test.jms;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
 
-import com.nanoutech.lime.test.base.SpringBaseTestCase;
-import com.nanoutech.lime.test.jms.bean.Email;
-import com.nanoutech.lime.test.jms.service.IMessageService;
+import com.innstack.lime.test.base.SpringBaseTestCase;
+import com.innstack.lime.test.jms.bean.Email;
+import com.innstack.lime.test.jms.service.IMessageService;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;

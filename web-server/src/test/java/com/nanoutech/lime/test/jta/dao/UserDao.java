@@ -1,4 +1,4 @@
-package com.nanoutech.lime.test.jta.dao;
+package com.innstack.lime.test.jta.dao;
 
 import javax.annotation.Resource;
 

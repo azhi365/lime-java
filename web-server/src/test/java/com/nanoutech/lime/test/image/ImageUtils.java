@@ -1,4 +1,4 @@
-package com.nanoutech.lime.test.image;
+package com.innstack.lime.test.image;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;

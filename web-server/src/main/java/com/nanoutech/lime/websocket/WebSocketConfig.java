@@ -1,4 +1,4 @@
-package com.nanoutech.lime.websocket;
+package com.innstack.lime.websocket;
 
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;

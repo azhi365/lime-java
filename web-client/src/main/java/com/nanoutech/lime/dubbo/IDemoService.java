@@ -1,4 +1,4 @@
-package com.nanoutech.lime.dubbo;
+package com.innstack.lime.dubbo;
 
 public interface IDemoService {
 

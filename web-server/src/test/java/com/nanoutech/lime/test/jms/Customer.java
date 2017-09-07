@@ -1,7 +1,7 @@
 /**
  * nanoutech.com
  */
-package com.nanoutech.lime.test.jms;
+package com.innstack.lime.test.jms;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;

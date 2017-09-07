@@ -1,4 +1,4 @@
-package com.nanoutech.lime.test.jms.converter;
+package com.innstack.lime.test.jms.converter;
 
 import java.io.Serializable;
 

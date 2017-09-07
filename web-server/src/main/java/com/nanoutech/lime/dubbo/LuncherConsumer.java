@@ -1,4 +1,4 @@
-package com.nanoutech.lime.dubbo;
+package com.innstack.lime.dubbo;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

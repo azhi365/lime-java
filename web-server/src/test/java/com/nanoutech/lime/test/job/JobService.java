@@ -1,4 +1,4 @@
-package com.nanoutech.lime.test.job;
+package com.innstack.lime.test.job;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

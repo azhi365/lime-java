@@ -1,7 +1,7 @@
-package com.nanoutech.lime.test.java;
+package com.innstack.lime.test.java;
 
-import com.nanoutech.lime.test.java.lock.Locker;
-import com.nanoutech.lime.test.java.lock.ReadWriteLocker;
+import com.innstack.lime.test.java.lock.Locker;
+import com.innstack.lime.test.java.lock.ReadWriteLocker;
 import org.junit.Test;
 
 import java.util.concurrent.ExecutorService;

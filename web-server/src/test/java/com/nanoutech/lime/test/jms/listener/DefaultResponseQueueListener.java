@@ -1,4 +1,4 @@
-package com.nanoutech.lime.test.jms.listener;
+package com.innstack.lime.test.jms.listener;
 
 import javax.jms.JMSException;
 import javax.jms.Message;

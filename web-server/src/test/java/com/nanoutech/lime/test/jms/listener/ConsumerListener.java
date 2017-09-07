@@ -1,6 +1,6 @@
-package com.nanoutech.lime.test.jms.listener;
+package com.innstack.lime.test.jms.listener;
 
-import com.nanoutech.lime.test.jms.bean.Email;
+import com.innstack.lime.test.jms.bean.Email;
 
 public class ConsumerListener {
 

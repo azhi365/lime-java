@@ -1,4 +1,4 @@
-package com.nanoutech.lime.test.jms.listener;
+package com.innstack.lime.test.jms.listener;
 
 import javax.annotation.Resource;
 import javax.jms.JMSException;
@@ -9,7 +9,7 @@ import javax.jms.TextMessage;
 
 import org.springframework.jms.support.converter.MessageConverter;
 
-import com.nanoutech.lime.test.jms.bean.Email;
+import com.innstack.lime.test.jms.bean.Email;
 
 /**
  * MessageListener是最原始的消息监听器，它是JMS规范中定义的一个接口。其中定义了一个用于处理接收到的消息的onMessage方法，

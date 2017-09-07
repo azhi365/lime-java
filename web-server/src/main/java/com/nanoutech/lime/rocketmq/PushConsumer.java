@@ -1,4 +1,4 @@
-package com.nanoutech.lime.rocketmq;
+package com.innstack.lime.rocketmq;
 
 import com.alibaba.rocketmq.client.consumer.DefaultMQPushConsumer;
 import com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;

@@ -1,17 +1,17 @@
 /**
  * 
  */
-package com.nanoutech.lime.test.jta;
+package com.innstack.lime.test.jta;
 
 import javax.annotation.Resource;
 
-import com.nanoutech.lime.test.base.SpringBaseTestCase;
+import com.innstack.lime.test.base.SpringBaseTestCase;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 
-import com.nanoutech.lime.test.jta.service.IUserService;
+import com.innstack.lime.test.jta.service.IUserService;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**

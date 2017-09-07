@@ -1,7 +1,7 @@
-package com.nanoutech.lime;
+package com.innstack.lime;
 
-import com.nanoutech.lime.dubbo.IDemoService;
-import com.nanoutech.lime.dubbo.Msg;
+import com.innstack.lime.dubbo.IDemoService;
+import com.innstack.lime.dubbo.Msg;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +30,9 @@ public class TestController {
     Object testDubbo(HttpServletRequest request, Model view) {
         System.out.println("LOG.............");
         if (demoService != null) {
+            demoService.sayHello();
+            String s = demoService.returnHello();
+            System.out.println(s);
             Msg msg = new Msg();
             msg.setId(1);
             msg.setName("fsdf");

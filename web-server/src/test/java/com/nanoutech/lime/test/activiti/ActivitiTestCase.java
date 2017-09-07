@@ -1,9 +1,9 @@
 /**
  *
  */
-package com.nanoutech.lime.test.activiti;
+package com.innstack.lime.test.activiti;
 
-import com.nanoutech.lime.test.base.SpringBaseTestCase;
+import com.innstack.lime.test.base.SpringBaseTestCase;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;

@@ -1,7 +1,7 @@
 /**
  * nanoutech.com
  */
-package com.nanoutech.lime.test.spring.service;
+package com.innstack.lime.test.spring.service;
 
 /**
  * 

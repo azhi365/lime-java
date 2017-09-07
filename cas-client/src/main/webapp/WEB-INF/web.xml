@@ -2,6 +2,10 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
+    <context-param>
+        <param-name>casServerLogoutUrl</param-name>
+        <param-value>https://sso.innstack.com/logout</param-value>
+    </context-param>
     <listener>
         <listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>
     </listener>
@@ -13,7 +17,7 @@
     </filter>
     <filter-mapping>
         <filter-name>CAS Single Sign Out Filter</filter-name>
-        <url-pattern>/logout</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <!-- auth must -->
@@ -22,11 +26,11 @@
         <filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
         <init-param>
             <param-name>casServerLoginUrl</param-name>
-            <param-value>https://sso.innstack.com:8443/cas/login</param-value>
+            <param-value>https://sso.innstack.com/login</param-value>
         </init-param>
         <init-param>
             <param-name>serverName</param-name>
-            <param-value>http://m.shop.nanoutech.com:8080</param-value>
+            <param-value>http://192.168.1.167:8080/</param-value>
         </init-param>
     </filter>
     <filter-mapping>
@@ -42,11 +46,11 @@
         </filter-class>
         <init-param>
             <param-name>casServerUrlPrefix</param-name>
-            <param-value>https://sso.innstack.com:8443/cas</param-value>
+            <param-value>https://sso.innstack.com</param-value>
         </init-param>
         <init-param>
             <param-name>serverName</param-name>
-            <param-value>http://m.shop.nanoutech.com:8080</param-value>
+            <param-value>http://192.168.1.167:8080/</param-value>
         </init-param>
         <!--        <init-param>
                     <param-name>sessionAttributes</param-name>

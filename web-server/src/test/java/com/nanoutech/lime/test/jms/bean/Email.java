@@ -1,4 +1,4 @@
-package com.nanoutech.lime.test.jms.bean;
+package com.innstack.lime.test.jms.bean;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
-package com.nanoutech.lime.utils;
+package com.innstack.lime.utils;
 
-import com.nanoutech.lime.base.Config;
+import com.innstack.lime.base.Config;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;

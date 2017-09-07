@@ -81,7 +81,7 @@
         <aop:advisor id="txAdvisor" advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
 
-    <bean class="com.nanoutech.lime.lime.shiro.spring.SpringUtils"/>
+    <bean class="com.innstack.lime.shiro.spring.SpringUtils"/>
 
     <import resource="classpath:spring-config-shiro.xml"/>
 </beans>

@@ -79,7 +79,7 @@
 		</tx:attributes>
 	</tx:advice>
 	<aop:config proxy-target-class="true">
-		<aop:pointcut id="bussinessServiceXA" expression="execution(public * com.nanoutech.test.jta.service..xa_*(..))" />
+		<aop:pointcut id="bussinessServiceXA" expression="execution(public * com.innstack.test.jta.service..xa_*(..))" />
 		<aop:advisor pointcut-ref="bussinessServiceXA" advice-ref="txAdviceXA" />
 	</aop:config>
 
@@ -124,11 +124,11 @@
 		</tx:attributes>
 	</tx:advice>
 	<aop:config proxy-target-class="true">
-		<aop:pointcut id="bussinessService" expression="execution(public * com.nanoutech.test.jta.service..add*(..))" />
+		<aop:pointcut id="bussinessService" expression="execution(public * com.innstack.test.jta.service..add*(..))" />
 		<aop:advisor pointcut-ref="bussinessService" advice-ref="txAdvice" />
 	</aop:config>
 
-	<bean id="userDao" class="com.nanoutech.lime.test.jta.dao.UserDao" />
-	<bean id="userService" class="com.nanoutech.lime.test.jta.service.UserService" />
+	<bean id="userDao" class="com.innstack.lime.test.jta.dao.UserDao" />
+	<bean id="userService" class="com.innstack.lime.test.jta.service.UserService" />
 
 </beans>  

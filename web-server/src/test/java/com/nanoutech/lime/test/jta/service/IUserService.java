@@ -1,4 +1,4 @@
-package com.nanoutech.lime.test.jta.service;
+package com.innstack.lime.test.jta.service;
 
 public interface IUserService {
 

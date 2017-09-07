@@ -1,7 +1,7 @@
 /**
  * kmjr
  */
-package com.nanoutech.lime.test.base;
+package com.innstack.lime.test.base;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

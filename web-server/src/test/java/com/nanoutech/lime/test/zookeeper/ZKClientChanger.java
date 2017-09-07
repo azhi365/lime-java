@@ -1,6 +1,6 @@
-package com.nanoutech.lime.test.zookeeper;
+package com.innstack.lime.test.zookeeper;
 
-import com.nanoutech.lime.base.Config;
+import com.innstack.lime.base.Config;
 import org.I0Itec.zkclient.ZkClient;
 import org.apache.zookeeper.CreateMode;
 

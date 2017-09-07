@@ -1,4 +1,4 @@
-package com.nanoutech.lime.websocket;
+package com.innstack.lime.websocket;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;

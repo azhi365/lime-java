@@ -1,7 +1,7 @@
 /**
  * nanoutech.com
  */
-package com.nanoutech.lime.test.jms.service;
+package com.innstack.lime.test.jms.service;
 
 import java.io.Serializable;
 

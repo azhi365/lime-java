@@ -1,10 +1,10 @@
-package com.nanoutech.lime.test.jta.service;
+package com.innstack.lime.test.jta.service;
 
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 
-import com.nanoutech.lime.test.jta.dao.IUserDao;
+import com.innstack.lime.test.jta.dao.IUserDao;
 
 public class UserService implements IUserService {
 	private Logger logger = Logger.getLogger(this.getClass());

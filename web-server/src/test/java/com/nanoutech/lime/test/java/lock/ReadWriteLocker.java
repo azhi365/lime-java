@@ -1,4 +1,4 @@
-package com.nanoutech.lime.test.java.lock;
+package com.innstack.lime.test.java.lock;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;

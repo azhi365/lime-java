@@ -1,6 +1,6 @@
-package com.nanoutech.lime.test.redis;
+package com.innstack.lime.test.redis;
 
-import com.nanoutech.lime.base.Config;
+import com.innstack.lime.base.Config;
 import org.junit.Before;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
