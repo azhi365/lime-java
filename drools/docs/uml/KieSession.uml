@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.kie.api.runtime.KieSession</OriginalElement>
+  <nodes>
+    <node x="0.0" y="81.0">org.kie.api.runtime.rule.RuleRuntime</node>
+    <node x="207.25" y="81.0">org.kie.api.event.KieRuntimeEventManager</node>
+    <node x="85.25" y="162.0">org.kie.api.runtime.CommandExecutor</node>
+    <node x="249.25" y="162.0">org.kie.api.runtime.KieRuntime</node>
+    <node x="534.25" y="162.0">org.kie.api.runtime.process.StatefulProcessSession</node>
+    <node x="322.0" y="243.0">org.kie.api.runtime.KieSession</node>
+    <node x="410.25" y="81.0">org.kie.api.runtime.process.ProcessRuntime</node>
+    <node x="119.0" y="0.0">org.kie.api.event.process.ProcessEventManager</node>
+    <node x="302.0" y="0.0">org.kie.api.event.rule.RuleRuntimeEventManager</node>
+    <node x="7.0" y="0.0">org.kie.api.runtime.rule.EntryPoint</node>
+    <node x="368.25" y="162.0">org.kie.api.runtime.rule.StatefulRuleSession</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.kie.api.runtime.KieSession" target="org.kie.api.runtime.CommandExecutor">
+      <point x="-36.0" y="-15.5" />
+      <point x="334.0" y="223.0" />
+      <point x="157.25" y="223.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="org.kie.api.runtime.KieSession" target="org.kie.api.runtime.rule.StatefulRuleSession">
+      <point x="12.0" y="-15.5" />
+      <point x="382.0" y="213.0" />
+      <point x="441.25" y="213.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="org.kie.api.runtime.rule.RuleRuntime" target="org.kie.api.runtime.rule.EntryPoint">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="org.kie.api.runtime.KieRuntime" target="org.kie.api.runtime.process.ProcessRuntime">
+      <point x="33.0" y="-15.5" />
+      <point x="331.75" y="137.0" />
+      <point x="473.25" y="137.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="org.kie.api.runtime.KieRuntime" target="org.kie.api.event.KieRuntimeEventManager">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="org.kie.api.event.KieRuntimeEventManager" target="org.kie.api.event.rule.RuleRuntimeEventManager">
+      <point x="45.75" y="-15.5" />
+      <point x="344.5" y="56.0" />
+      <point x="397.0" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="org.kie.api.runtime.KieSession" target="org.kie.api.runtime.KieRuntime">
+      <point x="-12.0" y="-15.5" />
+      <point x="358.0" y="213.0" />
+      <point x="298.75" y="213.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="org.kie.api.runtime.KieRuntime" target="org.kie.api.runtime.rule.RuleRuntime">
+      <point x="-33.0" y="-15.5" />
+      <point x="265.75" y="137.0" />
+      <point x="53.0" y="137.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="org.kie.api.event.KieRuntimeEventManager" target="org.kie.api.event.process.ProcessEventManager">
+      <point x="-45.75" y="-15.5" />
+      <point x="253.0" y="56.0" />
+      <point x="200.5" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="org.kie.api.runtime.KieSession" target="org.kie.api.runtime.process.StatefulProcessSession">
+      <point x="36.0" y="-15.5" />
+      <point x="406.0" y="223.0" />
+      <point x="617.25" y="223.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="350.5" y="157.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
