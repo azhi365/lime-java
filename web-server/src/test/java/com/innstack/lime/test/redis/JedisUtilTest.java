@@ -22,7 +22,6 @@ public class JedisUtilTest {
     @Before
     public void setUp() {
         pool = new JedisPool(new JedisPoolConfig(), Config.redisURL);
-
         jedis = pool.getResource();
         //jedis.auth("password");
 
