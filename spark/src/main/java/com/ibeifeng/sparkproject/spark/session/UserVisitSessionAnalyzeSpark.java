@@ -57,7 +57,7 @@ import java.util.*;
 public class UserVisitSessionAnalyzeSpark {
 
     public static void main(String[] args) {
-        //args = new String[]{"2"};
+        args = new String[]{"2"};
 
         // 构建Spark上下文
         SparkConf conf = new SparkConf().setAppName(Constants.SPARK_APP_NAME_SESSION)
@@ -170,7 +170,7 @@ public class UserVisitSessionAnalyzeSpark {
          */
 
 
-        //randomExtractSession(sc, task.getTaskid(), filteredSessionid2AggrInfoRDD, sessionid2detailRDD);
+        randomExtractSession(sc, task.getTaskid(), filteredSessionid2AggrInfoRDD, sessionid2detailRDD);
 
         /**
          * 特别说明
@@ -235,10 +235,10 @@ public class UserVisitSessionAnalyzeSpark {
          */
 
         // 获取top10热门品类
-        //List<Tuple2<CategorySortKey, String>> top10CategoryList = getTop10Category(task.getTaskid(), sessionid2detailRDD);
+        List<Tuple2<CategorySortKey, String>> top10CategoryList = getTop10Category(task.getTaskid(), sessionid2detailRDD);
 
         // 获取top10活跃session
-        //getTop10Session(sc, task.getTaskid(), top10CategoryList, sessionid2detailRDD);
+        getTop10Session(sc, task.getTaskid(), top10CategoryList, sessionid2detailRDD);
 
         // 关闭Spark上下文
         sc.close();
@@ -811,13 +811,7 @@ public class UserVisitSessionAnalyzeSpark {
         String keywords = ParamUtils.getParam(taskParam, Constants.PARAM_KEYWORDS);
         String categoryIds = ParamUtils.getParam(taskParam, Constants.PARAM_CATEGORY_IDS);
 
-        String _parameter = (startAge != null ? Constants.PARAM_START_AGE + "=" + startAge + "|" : "")
-                + (endAge != null ? Constants.PARAM_END_AGE + "=" + endAge + "|" : "")
-                + (professionals != null ? Constants.PARAM_PROFESSIONALS + "=" + professionals + "|" : "")
-                + (cities != null ? Constants.PARAM_CITIES + "=" + cities + "|" : "")
-                + (sex != null ? Constants.PARAM_SEX + "=" + sex + "|" : "")
-                + (keywords != null ? Constants.PARAM_KEYWORDS + "=" + keywords + "|" : "")
-                + (categoryIds != null ? Constants.PARAM_CATEGORY_IDS + "=" + categoryIds : "");
+        String _parameter = (startAge != null ? Constants.PARAM_START_AGE + "=" + startAge + "|" : "") + (endAge != null ? Constants.PARAM_END_AGE + "=" + endAge + "|" : "") + (professionals != null ? Constants.PARAM_PROFESSIONALS + "=" + professionals + "|" : "") + (cities != null ? Constants.PARAM_CITIES + "=" + cities + "|" : "") + (sex != null ? Constants.PARAM_SEX + "=" + sex + "|" : "") + (keywords != null ? Constants.PARAM_KEYWORDS + "=" + keywords + "|" : "") + (categoryIds != null ? Constants.PARAM_CATEGORY_IDS + "=" + categoryIds : "");
 
         if (_parameter.endsWith("\\|")) {
             _parameter = _parameter.substring(0, _parameter.length() - 1);
@@ -1073,11 +1067,7 @@ public class UserVisitSessionAnalyzeSpark {
                 sessionCount += hourCount;
             }
 
-            Map<String, List<Integer>> hourExtractMap = dateHourExtractMap.get(date);
-            if (hourExtractMap == null) {
-                hourExtractMap = new HashMap<>();
-                dateHourExtractMap.put(date, hourExtractMap);
-            }
+            Map<String, List<Integer>> hourExtractMap = dateHourExtractMap.computeIfAbsent(date, k -> new HashMap<>());
 
             // 遍历每个小时
             for (Map.Entry<String, Long> hourCountEntry : hourCountMap.entrySet()) {
@@ -1092,11 +1082,7 @@ public class UserVisitSessionAnalyzeSpark {
                 }
 
                 // 先获取当前小时的存放随机数的list
-                List<Integer> extractIndexList = hourExtractMap.get(hour);
-                if (extractIndexList == null) {
-                    extractIndexList = new ArrayList<>();
-                    hourExtractMap.put(hour, extractIndexList);
-                }
+                List<Integer> extractIndexList = hourExtractMap.computeIfAbsent(hour, k -> new ArrayList<>());
 
                 // 生成上面计算出来的数量的随机数
                 for (int i = 0; i < hourExtractNumber; i++) {
@@ -1127,9 +1113,7 @@ public class UserVisitSessionAnalyzeSpark {
 
                 IntList fastutilExtractList = new IntArrayList();
 
-                for (int i = 0; i < extractList.size(); i++) {
-                    fastutilExtractList.add(extractList.get(i));
-                }
+                fastutilExtractList.addAll(extractList);
 
                 fastutilHourExtractMap.put(hour, fastutilExtractList);
             }
@@ -1290,7 +1274,7 @@ public class UserVisitSessionAnalyzeSpark {
      */
     private static void calculateAndPersistAggrStat(String value, long taskid) {
 
-        if(StringUtils.isEmpty(value)){
+        if (StringUtils.isEmpty(value)) {
             return;
         }
 
@@ -1528,7 +1512,7 @@ public class UserVisitSessionAnalyzeSpark {
                     @Override
                     public Boolean call(Tuple2<String, Row> tuple) throws Exception {
                         Row row = tuple._2;
-                        return row.get(6) != null ? true : false;
+                        return row.get(6) != null;
                     }
 
                 });
@@ -1691,7 +1675,7 @@ public class UserVisitSessionAnalyzeSpark {
                     @Override
                     public Boolean call(Tuple2<String, Row> tuple) throws Exception {
                         Row row = tuple._2;
-                        return row.getString(8) != null ? true : false;
+                        return row.getString(8) != null;
                     }
 
                 });
@@ -1751,7 +1735,7 @@ public class UserVisitSessionAnalyzeSpark {
                     @Override
                     public Boolean call(Tuple2<String, Row> tuple) throws Exception {
                         Row row = tuple._2;
-                        return row.getString(10) != null ? true : false;
+                        return row.getString(10) != null;
                     }
 
                 });
