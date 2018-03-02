@@ -1,0 +1,6 @@
+<configuration>
+    <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>server-dev02</value>
+    </property>
+</configuration>

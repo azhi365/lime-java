@@ -86,12 +86,13 @@ public class TimeClientHandler implements Runnable {
         }
 
         // 多路复用器关闭后，所有注册在上面的Channel和Pipe等资源都会被自动去注册并关闭，所以不需要重复释放资源
-        if (selector != null)
+        if (selector != null) {
             try {
                 selector.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
 
     }
 
@@ -104,8 +105,9 @@ public class TimeClientHandler implements Runnable {
                 if (sc.finishConnect()) {
                     sc.register(selector, SelectionKey.OP_READ);
                     doWrite(sc);
-                } else
+                } else {
                     System.exit(1);// 连接失败，进程退出
+                }
             }
             if (key.isReadable()) {
                 ByteBuffer readBuffer = ByteBuffer.allocate(1024);
@@ -121,8 +123,9 @@ public class TimeClientHandler implements Runnable {
                     // 对端链路关闭
                     key.cancel();
                     sc.close();
-                } else
+                } else {
                     ; // 读到0字节，忽略
+                }
             }
         }
 
@@ -133,8 +136,9 @@ public class TimeClientHandler implements Runnable {
         if (socketChannel.connect(new InetSocketAddress(host, port))) {
             socketChannel.register(selector, SelectionKey.OP_READ);
             doWrite(socketChannel);
-        } else
+        } else {
             socketChannel.register(selector, SelectionKey.OP_CONNECT);
+        }
     }
 
     private void doWrite(SocketChannel sc) throws IOException {
@@ -143,7 +147,8 @@ public class TimeClientHandler implements Runnable {
         writeBuffer.put(req);
         writeBuffer.flip();
         sc.write(writeBuffer);
-        if (!writeBuffer.hasRemaining())
+        if (!writeBuffer.hasRemaining()) {
             System.out.println("Send order 2 server succeed.");
+        }
     }
 }
